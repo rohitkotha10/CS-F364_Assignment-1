@@ -27,7 +27,7 @@ vector<vector<pair<int, int>>> normalize(vector<vector<pair<float, float>>>& ans
         };
     }
     maxX += diff + 1;
-    minX += diff + 1;
+    maxY += diff + 1;
 
     int scaler = (float)(scrSize - 50.0f) / (float)max(maxX, maxY);
 

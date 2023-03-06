@@ -34,8 +34,8 @@ class DCEL {
 public:
     void createDCEL(std::vector<std::pair<float, float>> vertices);
     void printFaces(std::string file);
-    void addEdge(int i, int j);
-    pair<int, int> getVertex(int i) { return vertexRecords[i]->org; }
+    void addEdge(int i, int j);  // passing the indices
+    std::pair<float, float> getVertex(int i) { return vertexRecords[i]->org; };
 
 private:
     std::vector<std::shared_ptr<VertexDCEL>> vertexRecords;
