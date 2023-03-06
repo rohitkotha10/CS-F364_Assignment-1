@@ -127,41 +127,51 @@ void decomposeIntoConvex(DCEL& polygon, int n, vector<int> notches) {
     int fir = 0;
     int curVertex = 0;
     int pathdis = 2;  // from fir to las initially i.e vi to vi+2
+    int viplus1ind = polygon.getNextVertex(curVertex);
+    int vfirplus1ind = polygon.getNextVertex(fir);
+
     while (true) {
-        int inflag = 0;
         pair<float, float> vi = polygon.getVertexVal(curVertex);
         pair<float, float> vfir = polygon.getVertexVal(fir);
-        int viplus1ind = polygon.getNextVertex(curVertex);
         int viplus2ind = polygon.getNextVertex(viplus1ind);
         int las = viplus2ind;
-        int vfirplus1ind = polygon.getNextVertex(fir);
+
         pair<float, float> viplus1 = polygon.getVertexVal(viplus1ind);
         pair<float, float> viplus2 = polygon.getVertexVal(viplus2ind);
         pair<float, float> vfirplus1 = polygon.getVertexVal(vfirplus1ind);
         if (isReflex(vi, viplus1, viplus2) || isReflex(viplus1, viplus2, vfir) || isReflex(viplus2, vfir, vfirplus1)) {
             if (pathdis == 2) {
-                fir = polygon.getNextVertex(fir);
+                fir = vfirplus1ind;
+                vfirplus1ind = polygon.getNextVertex(fir);
                 curVertex = fir;
+                viplus1ind = polygon.getNextVertex(curVertex);
             } else {
                 // process with the rectangle and then add the appropriate part
-                pair<int, int> endPath = checkNotchInside(polygon, n, fir, polygon.getPrevVertex(las), notches);
+                pair<int, int> endPath = checkNotchInside(polygon, n, fir, viplus1ind, notches);
                 // ends is returning the last point where the polygon ends after division and the path length
                 if (endPath.first >= 2) {
                     if (polygon.existEdge(fir, endPath.second))
                         break;
-                    else
+                    else {
+                        viplus1ind = polygon.getNextVertex(endPath.second);
+                        vfirplus1ind = viplus1ind;
                         polygon.addEdge(fir, endPath.second);
-                    inflag = 1;
+                    }
                     fir = endPath.second;
                     curVertex = fir;
+                    pathdis = 2;
                 } else {
                     fir = polygon.getNextVertex(fir);
                     curVertex = fir;
+                    viplus1ind = polygon.getNextVertex(curVertex);
+                    vfirplus1ind = viplus1ind;
+                    pathdis = 2;
                 }
             }
         } else {
             pathdis++;
-            curVertex = polygon.getNextVertex(curVertex);
+            curVertex = viplus1ind;
+            viplus1ind = polygon.getNextVertex(viplus1ind);
             if (las == fir) break;
         }
     }
@@ -174,7 +184,6 @@ int main() {
     polygon.createDCEL(verts);
     vector<int> notches = findNotches(polygon, n);
     decomposeIntoConvex(polygon, n, notches);
-    // polygon.addEdge(0, 2);
     polygon.printFaces("../tests/output.txt");
     GLUTVisualizer vis;
     vis.run("../tests/output.txt");

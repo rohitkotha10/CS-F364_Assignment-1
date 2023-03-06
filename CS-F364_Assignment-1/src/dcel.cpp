@@ -89,22 +89,27 @@ void DCEL::addEdge(int i, int j) {
     shared_ptr<FaceDCEL> oldface = v1->incEdge->leftFace;
 
     shared_ptr<FaceDCEL> faceNew = make_shared<FaceDCEL>();
-    shared_ptr<EdgeDCEL> nextj = v1->incEdge;
-    while (nextj->org.get() != v2.get()) {
-        nextj->leftFace = faceNew;
-        nextj = nextj->next;
-    }
+    shared_ptr<EdgeDCEL> nextj = v2->incEdge;
     shared_ptr<EdgeDCEL> prevj = nextj->prev;
     shared_ptr<EdgeDCEL> nexti = v1->incEdge;
-    shared_ptr<EdgeDCEL> previ = v1->incEdge->prev;
+    shared_ptr<EdgeDCEL> previ = nexti->prev;
 
-    faceNew->incEdge = nexti;
+    shared_ptr<EdgeDCEL> cur = nexti;
+    while (cur.get() != nextj.get()) {
+        cur->leftFace = faceNew;
+        cur = cur->next;
+    }
+
 
     shared_ptr<EdgeDCEL> edgeNew = make_shared<EdgeDCEL>();
     shared_ptr<EdgeDCEL> edgeNewTwin = make_shared<EdgeDCEL>();
+    faceNew->incEdge = edgeNewTwin;
+    oldface->incEdge = edgeNew;
 
     edgeNew->org = v1;
+    v1->incEdge = edgeNew;
     edgeNewTwin->org = v2;
+    v2->incEdge = edgeNewTwin;
     edgeNew->twin = edgeNewTwin;
     edgeNewTwin->twin = edgeNew;
 
