@@ -1,11 +1,4 @@
-#define FREEGLUT_STATIC
-#define _LIB
-#define FREEGLUT_LIB_PRAGMAS 0
-
-#include <GL/freeglut.h>
-#include <iostream>
-#include <fstream>
-#include <vector>
+#include "visualizer.h"
 
 using namespace std;
 
@@ -70,20 +63,6 @@ void getFaces(string file) {
     ans = normalize(ansFloat, scrSize);
 }
 
-void init(void) {
-    glClearColor(0, 0, 0, 0);
-
-    glViewport(0, 0, scrSize, scrSize);
-
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-
-    glOrtho(0, scrSize, 0, scrSize, 1, -1);
-
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-}
-
 void drawLines() {
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(0.0, 1.0, 0.0);
@@ -99,17 +78,32 @@ void drawLines() {
     }
 }
 
-int main(int argc, char** argv) {
-    getFaces("../tests/output.txt");
-    cout << ans[0].size() << endl;
+void GLUTVisualizer::init() {
+    glClearColor(0, 0, 0, 0);
 
+    glViewport(0, 0, scrSize, scrSize);
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+
+    glOrtho(0, scrSize, 0, scrSize, 1, -1);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+}
+
+void GLUTVisualizer::run(string file) {
+    getFaces(file);
+
+    int argc = 1;
+    char* argv[1] = {(char*)""};
     glutInit(&argc, argv);
     glutInitWindowPosition(10, 10);
     glutInitWindowSize(scrSize, scrSize);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 
     glutCreateWindow("Polygon Decomposition");
-    init();
+    this->init();
     glutDisplayFunc(drawLines);
     glutMainLoop();
 }
