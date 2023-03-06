@@ -2,18 +2,6 @@
 
 using namespace std;
 
-vector<pair<float, float>> FaceDCEL::getFaceVertices() {
-    vector<pair<float, float>> ans;
-    shared_ptr<EdgeDCEL> startEdge = this->incEdge;
-    while (startEdge->next.get() != incEdge.get()) {
-        ans.emplace_back(startEdge->org->org.first, startEdge->org->org.second);
-        startEdge = startEdge->next;
-    }
-    ans.emplace_back(startEdge->org->org.first, startEdge->org->org.second);
-
-    return ans;
-}
-
 void DCEL::createDCEL(vector<pair<float, float>> vertices) {
     shared_ptr<FaceDCEL> faceInf = make_shared<FaceDCEL>();
     shared_ptr<FaceDCEL> faceInitial = make_shared<FaceDCEL>();
@@ -67,6 +55,19 @@ void DCEL::createDCEL(vector<pair<float, float>> vertices) {
     faceRecords.push_back(faceInitial);
 }
 
+vector<pair<float, float>> FaceDCEL::getFaceVertices() {
+    vector<pair<float, float>> ans;
+    shared_ptr<EdgeDCEL> startEdge = this->incEdge;
+    ans.emplace_back(startEdge->org->org.first, startEdge->org->org.second);
+    startEdge = startEdge->next;
+    while (startEdge.get() != incEdge.get()) {
+        ans.emplace_back(startEdge->org->org.first, startEdge->org->org.second);
+        startEdge = startEdge->next;
+    }
+
+    return ans;
+}
+
 void DCEL::printFaces(string file) {
     ofstream ofs(file);
     ofs << faceRecords.size() << endl;
@@ -84,80 +85,67 @@ void DCEL::addEdge(int i, int j) {
     shared_ptr<VertexDCEL> v1 = vertexRecords[i];
     shared_ptr<VertexDCEL> v2 = vertexRecords[j];
 
-    if (faceRecords.size() > 2 && v2->incEdge.get() == faceRecords[2]->incEdge.get()) {
-        if (faceRecords[2]->incEdge->prev->org.get() == v1.get())
-            return;
-        else {
-            shared_ptr<EdgeDCEL> edgeStart = v1->incEdge;
-            shared_ptr<FaceDCEL> faceNew = make_shared<FaceDCEL>();
-            faceNew->incEdge = edgeStart;
+    // the four ptrs below always satisy as we split the face we need in ccw order
+    shared_ptr<FaceDCEL> oldface = v1->incEdge->leftFace;
 
-            shared_ptr<EdgeDCEL> edgeNew = make_shared<EdgeDCEL>();
-            shared_ptr<EdgeDCEL> edgeNewTwin = make_shared<EdgeDCEL>();
-
-            edgeStart->leftFace = faceNew;
-            edgeStart = edgeStart->next;
-            while (edgeStart.get() != v1->incEdge.get()) {
-                edgeStart->leftFace = faceNew;
-                edgeStart = edgeStart->next;
-            }
-
-            edgeNew->org = v1;
-            edgeNewTwin->org = v2;
-            edgeNew->twin = edgeNewTwin;
-            edgeNewTwin->twin = edgeNew;
-
-            edgeNew->next = v2->incEdge->prev->twin;
-            edgeNew->prev = v1->incEdge->prev;
-            edgeNew->leftFace = faceRecords[1];
-
-            edgeNewTwin->next = v1->incEdge;
-            edgeNewTwin->prev = v2->incEdge->prev->twin->prev;
-            edgeNewTwin->leftFace = faceNew;
-
-            v1->incEdge->prev->next = edgeNew;
-            v2->incEdge->prev->twin->prev->next = edgeNewTwin;
-            v1->incEdge->prev = edgeNewTwin;
-            v2->incEdge->prev->twin->prev = edgeNew;
-
-            faceRecords.push_back(faceNew);
-            edgeRecords.push_back(edgeNew);
-            edgeRecords.push_back(edgeNewTwin);
-        }
-
-    } else {
-        shared_ptr<EdgeDCEL> edgeStart = v1->incEdge;
-        shared_ptr<FaceDCEL> faceNew = make_shared<FaceDCEL>();
-        faceNew->incEdge = edgeStart;
-
-        shared_ptr<EdgeDCEL> edgeNew = make_shared<EdgeDCEL>();
-        shared_ptr<EdgeDCEL> edgeNewTwin = make_shared<EdgeDCEL>();
-
-        while (edgeStart.get() != v2->incEdge.get()) {
-            edgeStart->leftFace = faceNew;
-            edgeStart = edgeStart->next;
-        }
-
-        edgeNew->org = v1;
-        edgeNewTwin->org = v2;
-        edgeNew->twin = edgeNewTwin;
-        edgeNewTwin->twin = edgeNew;
-
-        edgeNew->next = v2->incEdge;
-        edgeNew->prev = v1->incEdge->prev;
-        edgeNew->leftFace = faceRecords[1];
-
-        edgeNewTwin->next = v1->incEdge;
-        edgeNewTwin->prev = v2->incEdge->prev;
-        edgeNewTwin->leftFace = faceNew;
-
-        v1->incEdge->prev->next = edgeNew;
-        v2->incEdge->prev->next = edgeNewTwin;
-        v1->incEdge->prev = edgeNewTwin;
-        v2->incEdge->prev = edgeNew;
-
-        faceRecords.push_back(faceNew);
-        edgeRecords.push_back(edgeNew);
-        edgeRecords.push_back(edgeNewTwin);
+    shared_ptr<FaceDCEL> faceNew = make_shared<FaceDCEL>();
+    shared_ptr<EdgeDCEL> nextj = v1->incEdge;
+    while (nextj->org.get() != v2.get()) {
+        nextj->leftFace = faceNew;
+        nextj = nextj->next;
     }
+    shared_ptr<EdgeDCEL> prevj = nextj->prev;
+    shared_ptr<EdgeDCEL> nexti = v1->incEdge;
+    shared_ptr<EdgeDCEL> previ = v1->incEdge->prev;
+
+    faceNew->incEdge = nexti;
+
+    shared_ptr<EdgeDCEL> edgeNew = make_shared<EdgeDCEL>();
+    shared_ptr<EdgeDCEL> edgeNewTwin = make_shared<EdgeDCEL>();
+
+    edgeNew->org = v1;
+    edgeNewTwin->org = v2;
+    edgeNew->twin = edgeNewTwin;
+    edgeNewTwin->twin = edgeNew;
+
+    edgeNew->next = nextj;
+    edgeNew->prev = previ;
+    edgeNew->leftFace = oldface;
+
+    edgeNewTwin->next = nexti;
+    edgeNewTwin->prev = prevj;
+    edgeNewTwin->leftFace = faceNew;
+
+    previ->next = edgeNew;
+    nexti->prev = edgeNewTwin;
+    prevj->next = edgeNewTwin;
+    nextj->prev = edgeNew;
+
+    faceRecords.push_back(faceNew);
+    edgeRecords.push_back(edgeNew);
+    edgeRecords.push_back(edgeNewTwin);
+}
+
+bool DCEL::existEdge(int st, int en) {
+    for (int i = 0; i < edgeRecords.size(); i++) {
+        if (vertexRecords[st].get() == edgeRecords[i]->org.get() &&
+            vertexRecords[en].get() == edgeRecords[i]->twin->org.get())
+            return true;
+    }
+    return false;
+}
+
+int DCEL::getNextVertex(int i) {
+    shared_ptr<EdgeDCEL> nexti = vertexRecords[i]->incEdge;
+    for (int i = 0; i < vertexRecords.size(); i++) {
+        if (nexti->next->org.get() == vertexRecords[i].get()) return i;
+    }
+}
+
+int DCEL::getPrevVertex(int i) {
+    shared_ptr<EdgeDCEL> nexti = vertexRecords[i]->incEdge;
+    for (int i = 0; i < vertexRecords.size(); i++) {
+        if (nexti->prev->org.get() == vertexRecords[i].get()) return i;
+    }
+    return -1;
 }
