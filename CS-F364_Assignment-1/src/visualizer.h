@@ -7,12 +7,14 @@
 #include <fstream>
 #include <vector>
 
-std::vector<std::vector<std::pair<int, int>>> normalize(std::vector<std::vector<std::pair<float, float>>>& ansFloat, int scrSize);
+std::vector<std::vector<std::pair<int, int>>> normalize(
+    std::vector<std::vector<std::pair<float, float>>>& ansFloat, int scrSize);
 void getFaces(std::string file);
 void drawLines();
 
 class GLUTVisualizer {
 public:
     void init();
-    void run(std::string file);
+    void runOutput();
+    void runInput();
 };

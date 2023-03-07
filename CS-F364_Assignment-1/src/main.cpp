@@ -193,14 +193,15 @@ void decomposeIntoConvex(DCEL& polygon, int n, vector<int>& notches) {
 }
 
 int main() {
-    vector<pair<float, float>> verts = getVertices("../tests/input.txt");
+    GLUTVisualizer vis;
+    vis.runInput();
+    vector<pair<float, float>> verts = getVertices("../tests/inputGLUT.txt");
     int n = verts.size();
     DCEL polygon;
     polygon.createDCEL(verts);
     vector<int> notches = findNotches(polygon, n);
     decomposeIntoConvex(polygon, n, notches);
     polygon.printFaces("../tests/output.txt");
-    GLUTVisualizer vis;
-    vis.run("../tests/output.txt");
+    vis.runOutput();
     return 0;
 }
