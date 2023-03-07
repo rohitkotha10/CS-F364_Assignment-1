@@ -35,12 +35,9 @@ public:
     void createDCEL(std::vector<std::pair<float, float>> vertices);
     void printFaces(std::string file);
     void addEdge(int i, int j);  // passing the indices
-    std::pair<float, float> getVertexVal(int i) { return vertexRecords[i]->org; };
     bool existEdge(int i, int j);
-    int getNextVertex(int i);
-    int getPrevVertex(int i);
+    int getVertexInd(std::pair<float, float> val);
 
-private:
     std::vector<std::shared_ptr<VertexDCEL>> vertexRecords;
     std::vector<std::shared_ptr<EdgeDCEL>> edgeRecords;
     std::vector<std::shared_ptr<FaceDCEL>> faceRecords;

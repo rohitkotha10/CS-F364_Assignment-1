@@ -2,6 +2,7 @@
 #include "visualizer.h"
 #include <iostream>
 #include <fstream>
+#include <tuple>
 using namespace std;
 
 vector<pair<float, float>> getVertices(string inFile) {
@@ -29,11 +30,11 @@ vector<int> findNotches(DCEL& polygon, int n) {
     for (int i = 0; i < n; i++) {
         pair<float, float> viminus1;
         if (i == 0)
-            viminus1 = polygon.getVertexVal(n - 1);
+            viminus1 = polygon.vertexRecords[n - 1]->org;
         else
-            viminus1 = polygon.getVertexVal(i - 1);
-        pair<float, float> vi = polygon.getVertexVal(i);
-        pair<float, float> viplus1 = polygon.getVertexVal((i + 1) % n);
+            viminus1 = polygon.vertexRecords[i - 1]->org;
+        pair<float, float> vi = polygon.vertexRecords[i]->org;
+        pair<float, float> viplus1 = polygon.vertexRecords[(i + 1) % n]->org;
         if (isReflex(viminus1, vi, viplus1)) ans[i] = 1;
     }
     return ans;
@@ -43,67 +44,71 @@ float lineEq(pair<float, float> val, float a, float b, float c) {
     return a * val.first + b * val.second + c;
 }
 
-int getNewLast(DCEL& polygon, int n, int notch, int first, int last) {
-    pair<float, float> notchval = polygon.getVertexVal(notch);
-    pair<float, float> firstval = polygon.getVertexVal(first);
-    pair<float, float> lastval = polygon.getVertexVal(last);
+shared_ptr<EdgeDCEL> getNewLast(
+    DCEL& polygon, int n, int notch, shared_ptr<EdgeDCEL>& first, shared_ptr<EdgeDCEL>& last) {
+    pair<float, float> notchval = polygon.vertexRecords[notch]->org;
+    pair<float, float> firstval = first->org->org;
+    pair<float, float> lastval = last->org->org;
     float a = notchval.second - firstval.second;
     float b = firstval.first - notchval.first;
     float c = notchval.first * firstval.second - firstval.first * notchval.second;
 
     float halfval = lineEq(lastval, a, b, c);  // put last in notch - first equation
 
-    int cur = last;
+    shared_ptr<EdgeDCEL> cur = last;
     while (cur != first) {
-        pair<float, float> temp = polygon.getVertexVal(cur);
+        pair<float, float> temp = cur->org->org;
         if (halfval > 0) {
             if (lineEq(temp, a, b, c) < 0) { return cur; }
         } else if (halfval < 0) {
             if (lineEq(temp, a, b, c) > 0) { return cur; }
         }
-        cur = polygon.getPrevVertex(cur);
+        cur = cur->prev;
     }
     // this means all vertices including last in same halfplane
     return last;
 }
 
-pair<int, int> checkNotchInside(DCEL& polygon, int n, int first, int last, vector<int> notches) {
+pair<int, shared_ptr<EdgeDCEL>> checkNotchInside(
+    DCEL& polygon, int n, shared_ptr<EdgeDCEL>& first, shared_ptr<EdgeDCEL>& last, vector<int>& notches) {
     while (true) {
         int flag = 0;
 
         vector<int> lpvs;
         vector<int> isthere(n, 0);
-        int cur = first;
-        while (cur != polygon.getNextVertex(last)) {
-            isthere[cur] = 1;
-            cur = polygon.getNextVertex(cur);
+        shared_ptr<EdgeDCEL> cur = first;
+        while (cur != last->next) {
+            isthere[polygon.getVertexInd(cur->org->org)] = 1;
+            cur = cur->next;
         }
+
         for (int i = 0; i < n; i++) {
             if (isthere[i] == 0 && notches[i] == 1) lpvs.push_back(i);
         }
 
-        float refvalx = polygon.getVertexVal(first).first;
-        float refvaly = polygon.getVertexVal(first).second;
+        float refvalx = first->org->org.first;
+        float refvaly = first->org->org.second;
         float recxmax = refvalx;
         float recymax = refvaly;
         float recxmin = refvalx;
         float recymin = refvaly;
 
         cur = first;
-        while (cur != polygon.getNextVertex(last)) {
-            pair<float, float> temp = polygon.getVertexVal(cur);
+        while (cur != last->next) {
+            pair<float, float> temp = cur->org->org;
             recxmax = max(recxmax, temp.first);
             recymax = max(recymax, temp.second);
             recxmin = min(recxmin, temp.first);
             recymin = min(recymin, temp.second);
-            cur = polygon.getNextVertex(cur);
+            cur = cur->next;
         }
+
         vector<int> checker(lpvs.size(), 1);
         for (int i = 0; i < lpvs.size(); i++) {
             if (checker[i] == 1) {
-                pair<float, float> cur = polygon.getVertexVal(lpvs[i]);
+                pair<float, float> cur = polygon.vertexRecords[lpvs[i]]->org;
                 if (!(cur.first > recxmax || cur.first < recxmin || cur.second > recymax || cur.second < recymin)) {
-                    int temp = getNewLast(polygon, n, lpvs[i], first, last);
+                    shared_ptr<EdgeDCEL> temp = getNewLast(polygon, n, lpvs[i], first, last);
                     if (temp != last) {
                         flag = 1;
                         last = temp;
@@ -114,66 +119,76 @@ pair<int, int> checkNotchInside(DCEL& polygon, int n, int first, int last, vecto
         }
         if (flag == 0) break;
     }
+
     int pathdis = 0;
-    int cur = first;
+    shared_ptr<EdgeDCEL> cur = first;
     while (cur != last) {
         pathdis++;
-        cur = polygon.getNextVertex(cur);
+        cur = cur->next;
     }
     return make_pair(pathdis, last);
 }
 
-void decomposeIntoConvex(DCEL& polygon, int n, vector<int> notches) {
-    int fir = 0;
-    int curVertex = 0;
-    int pathdis = 2;  // from fir to las initially i.e vi to vi+2
-    int viplus1ind = polygon.getNextVertex(curVertex);
-    int vfirplus1ind = polygon.getNextVertex(fir);
-
+void decomposeIntoConvex(DCEL& polygon, int n, vector<int>& notches) {
     while (true) {
-        pair<float, float> vi = polygon.getVertexVal(curVertex);
-        pair<float, float> vfir = polygon.getVertexVal(fir);
-        int viplus2ind = polygon.getNextVertex(viplus1ind);
-        int las = viplus2ind;
+        int flag = 0;
+        for (int i = 1; i < polygon.faceRecords.size(); i++) {
+            shared_ptr<EdgeDCEL> curEdge = polygon.faceRecords[i]->incEdge;
+            shared_ptr<EdgeDCEL> vfir = curEdge;
+            shared_ptr<EdgeDCEL> vfirplus1 = curEdge->next;
+            curEdge = curEdge->next;
+            int edgeChange = 1;
+            int pathdis = 2;
+            while (curEdge.get() != polygon.faceRecords[i]->incEdge.get()) {
+                if (edgeChange == 1) {
+                    edgeChange = 0;
+                    curEdge = polygon.faceRecords[i]->incEdge;
+                }
+                shared_ptr<EdgeDCEL> vi = curEdge;
+                shared_ptr<EdgeDCEL> viplus1 = curEdge->next;
+                shared_ptr<EdgeDCEL> viplus2 = curEdge->next->next;
+                if (isReflex(vi->org->org, viplus1->org->org, viplus2->org->org) ||
+                    isReflex(viplus1->org->org, viplus2->org->org, vfir->org->org) ||
+                    isReflex(viplus2->org->org, vfir->org->org, vfirplus1->org->org)) {
+                    if (pathdis == 2) {
+                        curEdge = curEdge->next;
+                        vfir = curEdge;
+                        vfirplus1 = curEdge->next;
+                    } else {
+                        // process with the rectangle and then add the appropriate part
+                        // ends is returning the last point where the polygon ends after division and the path length
+                        pair<int, shared_ptr<EdgeDCEL>> endPath = checkNotchInside(polygon, n, vfir, viplus1, notches);
+                        if (endPath.first >= 2) {
+                            int firInd = polygon.getVertexInd(vfir->org->org);
+                            int lasInd = polygon.getVertexInd(endPath.second->org->org);
 
-        pair<float, float> viplus1 = polygon.getVertexVal(viplus1ind);
-        pair<float, float> viplus2 = polygon.getVertexVal(viplus2ind);
-        pair<float, float> vfirplus1 = polygon.getVertexVal(vfirplus1ind);
-        if (isReflex(vi, viplus1, viplus2) || isReflex(viplus1, viplus2, vfir) || isReflex(viplus2, vfir, vfirplus1)) {
-            if (pathdis == 2) {
-                fir = vfirplus1ind;
-                vfirplus1ind = polygon.getNextVertex(fir);
-                curVertex = fir;
-                viplus1ind = polygon.getNextVertex(curVertex);
-            } else {
-                // process with the rectangle and then add the appropriate part
-                pair<int, int> endPath = checkNotchInside(polygon, n, fir, viplus1ind, notches);
-                // ends is returning the last point where the polygon ends after division and the path length
-                if (endPath.first >= 2) {
-                    if (polygon.existEdge(fir, endPath.second))
-                        break;
-                    else {
-                        viplus1ind = polygon.getNextVertex(endPath.second);
-                        vfirplus1ind = viplus1ind;
-                        polygon.addEdge(fir, endPath.second);
+                            curEdge = endPath.second;
+                            vfir = curEdge;
+                            vfirplus1 = curEdge->next;
+                            pathdis = 2;
+
+                            if (firInd == -1 || lasInd == -1) {
+                                cout << "ERROR" << endl;
+                                return;
+                            }
+                            if (polygon.existEdge(firInd, lasInd))
+                                break;
+                            else
+                                polygon.addEdge(firInd, lasInd);
+                        } else {
+                            vfir = vfir->next;
+                            curEdge = vfir;
+                            vfirplus1 = vfir->next;
+                            pathdis = 2;
+                        }
                     }
-                    fir = endPath.second;
-                    curVertex = fir;
-                    pathdis = 2;
                 } else {
-                    fir = polygon.getNextVertex(fir);
-                    curVertex = fir;
-                    viplus1ind = polygon.getNextVertex(curVertex);
-                    vfirplus1ind = viplus1ind;
-                    pathdis = 2;
+                    pathdis++;
+                    curEdge = curEdge->next;
                 }
             }
-        } else {
-            pathdis++;
-            curVertex = viplus1ind;
-            viplus1ind = polygon.getNextVertex(viplus1ind);
-            if (las == fir) break;
         }
+        if (flag == 0) return;
     }
 }
 

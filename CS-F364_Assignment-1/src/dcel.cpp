@@ -100,7 +100,6 @@ void DCEL::addEdge(int i, int j) {
         cur = cur->next;
     }
 
-
     shared_ptr<EdgeDCEL> edgeNew = make_shared<EdgeDCEL>();
     shared_ptr<EdgeDCEL> edgeNewTwin = make_shared<EdgeDCEL>();
     faceNew->incEdge = edgeNewTwin;
@@ -109,7 +108,6 @@ void DCEL::addEdge(int i, int j) {
     edgeNew->org = v1;
     v1->incEdge = edgeNew;
     edgeNewTwin->org = v2;
-    v2->incEdge = edgeNewTwin;
     edgeNew->twin = edgeNewTwin;
     edgeNewTwin->twin = edgeNew;
 
@@ -140,17 +138,9 @@ bool DCEL::existEdge(int st, int en) {
     return false;
 }
 
-int DCEL::getNextVertex(int i) {
-    shared_ptr<EdgeDCEL> nexti = vertexRecords[i]->incEdge;
+int DCEL::getVertexInd(pair<float, float> val) {
     for (int i = 0; i < vertexRecords.size(); i++) {
-        if (nexti->next->org.get() == vertexRecords[i].get()) return i;
-    }
-}
-
-int DCEL::getPrevVertex(int i) {
-    shared_ptr<EdgeDCEL> nexti = vertexRecords[i]->incEdge;
-    for (int i = 0; i < vertexRecords.size(); i++) {
-        if (nexti->prev->org.get() == vertexRecords[i].get()) return i;
+        if (vertexRecords[i]->org == val) return i;
     }
     return -1;
 }
