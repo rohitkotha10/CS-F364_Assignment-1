@@ -1,0 +1,159 @@
+\hypertarget{visualizer_8cpp}{}\doxysection{C\+:/\+Users/\+Rohit/\+Desktop/3-\/2/\+CS-\/\+F364/\+Evals/\+Assignment-\/1/\+CS-\/\+F364\+\_\+\+Assignment-\/1/src/visualizer.cpp File Reference}
+\label{visualizer_8cpp}\index{C:/Users/Rohit/Desktop/3-\/2/CS-\/F364/Evals/Assignment-\/1/CS-\/F364\_Assignment-\/1/src/visualizer.cpp@{C:/Users/Rohit/Desktop/3-\/2/CS-\/F364/Evals/Assignment-\/1/CS-\/F364\_Assignment-\/1/src/visualizer.cpp}}
+{\ttfamily \#include \char`\"{}visualizer.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ vector$<$ pair$<$ int, int $>$ $>$ $>$ \mbox{\hyperlink{visualizer_8cpp_adbc7b313e971bb79135f4e411fff0310}{normalize}} (vector$<$ vector$<$ pair$<$ float, float $>$ $>$ $>$ \&ans\+Float, int \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scr\+Size}})
+\item 
+void \mbox{\hyperlink{visualizer_8cpp_a10d41fbf47a969fc508c497ec7dabb6b}{draw\+\_\+polygon}} (int button, int state, int x, int y)
+\item 
+void \mbox{\hyperlink{visualizer_8cpp_ae3e625e68449be036ab80baa9ce917d8}{mouse\+\_\+move}} (int x, int y)
+\item 
+void \mbox{\hyperlink{visualizer_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}{display}} ()
+\item 
+void \mbox{\hyperlink{visualizer_8cpp_af7a0b6c5057af4033e1aad95b707d18d}{get\+Faces}} (string file)
+\item 
+void \mbox{\hyperlink{visualizer_8cpp_ad7083c774260381ede786d0f52f62afc}{draw\+Lines}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scr\+Size}} = 640
+\item 
+pair$<$ int, int $>$ \mbox{\hyperlink{visualizer_8cpp_a4eb04df815a1456e2820b52614facf2e}{current\+Pt}}
+\item 
+std\+::vector$<$ pair$<$ int, int $>$ $>$ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}
+\item 
+bool \mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}} = false
+\item 
+bool \mbox{\hyperlink{visualizer_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}} = true
+\item 
+vector$<$ vector$<$ pair$<$ int, int $>$ $>$ $>$ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{visualizer_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}\label{visualizer_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}} 
+\index{visualizer.cpp@{visualizer.cpp}!display@{display}}
+\index{display@{display}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_a10d41fbf47a969fc508c497ec7dabb6b}\label{visualizer_8cpp_a10d41fbf47a969fc508c497ec7dabb6b}} 
+\index{visualizer.cpp@{visualizer.cpp}!draw\_polygon@{draw\_polygon}}
+\index{draw\_polygon@{draw\_polygon}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{draw\_polygon()}{draw\_polygon()}}
+{\footnotesize\ttfamily void draw\+\_\+polygon (\begin{DoxyParamCaption}\item[{int}]{button,  }\item[{int}]{state,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_ad7083c774260381ede786d0f52f62afc}\label{visualizer_8cpp_ad7083c774260381ede786d0f52f62afc}} 
+\index{visualizer.cpp@{visualizer.cpp}!drawLines@{drawLines}}
+\index{drawLines@{drawLines}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{drawLines()}{drawLines()}}
+{\footnotesize\ttfamily void draw\+Lines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_af7a0b6c5057af4033e1aad95b707d18d}\label{visualizer_8cpp_af7a0b6c5057af4033e1aad95b707d18d}} 
+\index{visualizer.cpp@{visualizer.cpp}!getFaces@{getFaces}}
+\index{getFaces@{getFaces}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{getFaces()}{getFaces()}}
+{\footnotesize\ttfamily void get\+Faces (\begin{DoxyParamCaption}\item[{string}]{file }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00079}{79}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_ae3e625e68449be036ab80baa9ce917d8}\label{visualizer_8cpp_ae3e625e68449be036ab80baa9ce917d8}} 
+\index{visualizer.cpp@{visualizer.cpp}!mouse\_move@{mouse\_move}}
+\index{mouse\_move@{mouse\_move}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{mouse\_move()}{mouse\_move()}}
+{\footnotesize\ttfamily void mouse\+\_\+move (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_adbc7b313e971bb79135f4e411fff0310}\label{visualizer_8cpp_adbc7b313e971bb79135f4e411fff0310}} 
+\index{visualizer.cpp@{visualizer.cpp}!normalize@{normalize}}
+\index{normalize@{normalize}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ pair$<$ int, int $>$ $>$ $>$ normalize (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ pair$<$ float, float $>$ $>$ $>$ \&}]{ans\+Float,  }\item[{int}]{scr\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}\label{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}} 
+\index{visualizer.cpp@{visualizer.cpp}!ans@{ans}}
+\index{ans@{ans}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{ans}{ans}}
+{\footnotesize\ttfamily vector$<$vector$<$pair$<$int, int$>$ $>$ $>$ ans}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}\label{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}} 
+\index{visualizer.cpp@{visualizer.cpp}!closed@{closed}}
+\index{closed@{closed}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{closed}{closed}}
+{\footnotesize\ttfamily bool closed = false}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_a4eb04df815a1456e2820b52614facf2e}\label{visualizer_8cpp_a4eb04df815a1456e2820b52614facf2e}} 
+\index{visualizer.cpp@{visualizer.cpp}!currentPt@{currentPt}}
+\index{currentPt@{currentPt}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{currentPt}{currentPt}}
+{\footnotesize\ttfamily pair$<$int, int$>$ current\+Pt}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}\label{visualizer_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}} 
+\index{visualizer.cpp@{visualizer.cpp}!flag@{flag}}
+\index{flag@{flag}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{flag}{flag}}
+{\footnotesize\ttfamily bool flag = true}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}\label{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}} 
+\index{visualizer.cpp@{visualizer.cpp}!pts@{pts}}
+\index{pts@{pts}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{pts}{pts}}
+{\footnotesize\ttfamily std\+::vector$<$pair$<$int, int$>$ $>$ pts}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}\label{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}} 
+\index{visualizer.cpp@{visualizer.cpp}!scrSize@{scrSize}}
+\index{scrSize@{scrSize}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{scrSize}{scrSize}}
+{\footnotesize\ttfamily int scr\+Size = 640}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+

@@ -1,0 +1,217 @@
+\hypertarget{main_8cpp}{}\doxysection{C\+:/\+Users/\+Rohit/\+Desktop/3-\/2/\+CS-\/\+F364/\+Evals/\+Assignment-\/1/\+CS-\/\+F364\+\_\+\+Assignment-\/1/src/main.cpp File Reference}
+\label{main_8cpp}\index{C:/Users/Rohit/Desktop/3-\/2/CS-\/F364/Evals/Assignment-\/1/CS-\/F364\_Assignment-\/1/src/main.cpp@{C:/Users/Rohit/Desktop/3-\/2/CS-\/F364/Evals/Assignment-\/1/CS-\/F364\_Assignment-\/1/src/main.cpp}}
+{\ttfamily \#include \char`\"{}dcel.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}visualizer.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ pair$<$ float, float $>$ $>$ \mbox{\hyperlink{main_8cpp_ad6c296a1aaa0468f64b518756ffc0ead}{get\+Vertices}} (string in\+File)
+\item 
+bool \mbox{\hyperlink{main_8cpp_a61dcf5731a5925cba68692d0cf33fcda}{is\+Reflex}} (pair$<$ float, float $>$ v1, pair$<$ float, float $>$ v2, pair$<$ float, float $>$ v3)
+\begin{DoxyCompactList}\small\item\em check if angle \texorpdfstring{$>$}{>}= 180 degrees using cross product \end{DoxyCompactList}\item 
+vector$<$ int $>$ \mbox{\hyperlink{main_8cpp_a28762b5f9e5172be6020dfae09a2409a}{find\+Notches}} (\mbox{\hyperlink{class_d_c_e_l}{DCEL}} \&polygon, int n)
+\begin{DoxyCompactList}\small\item\em report all notches in polygon. notch is one which is a reflex angle \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{main_8cpp_a179216be79ac52726cf7594eaabb954e}{line\+Eq}} (pair$<$ float, float $>$ val, float a, float b, float c)
+\begin{DoxyCompactList}\small\item\em line\+Equation to check vertex in which halfplane \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \mbox{\hyperlink{main_8cpp_a636faae1b097774b466f15c1f9515622}{get\+New\+Last}} (\mbox{\hyperlink{class_d_c_e_l}{DCEL}} \&polygon, int n, int notch, shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&first, shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&last)
+\begin{DoxyCompactList}\small\item\em shring rectangle by removing vertices which are unnecessary \end{DoxyCompactList}\item 
+pair$<$ int, shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ $>$ \mbox{\hyperlink{main_8cpp_a2c45786435bb8851fbbec3963d9c4e37}{check\+Notch\+Inside}} (\mbox{\hyperlink{class_d_c_e_l}{DCEL}} \&polygon, int n, shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&first, shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&last, vector$<$ int $>$ \&notches)
+\begin{DoxyCompactList}\small\item\em check if there are other vertices inside first-\/last edge and remove vertices according to algorithm \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_adc2c015112a05bef189b866f4606f549}{decompose\+Into\+Convex}} (\mbox{\hyperlink{class_d_c_e_l}{DCEL}} \&polygon, int n, vector$<$ int $>$ \&notches)
+\begin{DoxyCompactList}\small\item\em enumerate all facerecords while there is no new addition \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em first take input from glutfunction as a drawing in ccw order, then process and draw the decomposition \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a2c45786435bb8851fbbec3963d9c4e37}\label{main_8cpp_a2c45786435bb8851fbbec3963d9c4e37}} 
+\index{main.cpp@{main.cpp}!checkNotchInside@{checkNotchInside}}
+\index{checkNotchInside@{checkNotchInside}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{checkNotchInside()}{checkNotchInside()}}
+{\footnotesize\ttfamily pair$<$ int, shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ $>$ check\+Notch\+Inside (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_d_c_e_l}{DCEL}} \&}]{polygon,  }\item[{int}]{n,  }\item[{shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&}]{first,  }\item[{shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&}]{last,  }\item[{vector$<$ int $>$ \&}]{notches }\end{DoxyParamCaption})}
+
+
+
+check if there are other vertices inside first-\/last edge and remove vertices according to algorithm 
+
+
+\begin{DoxyParams}{Parameters}
+{\em polygon} & \\
+\hline
+{\em n} & \\
+\hline
+{\em first} & \\
+\hline
+{\em last} & \\
+\hline
+{\em notches} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00111}{111}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_adc2c015112a05bef189b866f4606f549}\label{main_8cpp_adc2c015112a05bef189b866f4606f549}} 
+\index{main.cpp@{main.cpp}!decomposeIntoConvex@{decomposeIntoConvex}}
+\index{decomposeIntoConvex@{decomposeIntoConvex}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{decomposeIntoConvex()}{decomposeIntoConvex()}}
+{\footnotesize\ttfamily void decompose\+Into\+Convex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_d_c_e_l}{DCEL}} \&}]{polygon,  }\item[{int}]{n,  }\item[{vector$<$ int $>$ \&}]{notches }\end{DoxyParamCaption})}
+
+
+
+enumerate all facerecords while there is no new addition 
+
+
+\begin{DoxyParams}{Parameters}
+{\em polygon} & \\
+\hline
+{\em n} & \\
+\hline
+{\em notches} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00177}{177}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a28762b5f9e5172be6020dfae09a2409a}\label{main_8cpp_a28762b5f9e5172be6020dfae09a2409a}} 
+\index{main.cpp@{main.cpp}!findNotches@{findNotches}}
+\index{findNotches@{findNotches}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{findNotches()}{findNotches()}}
+{\footnotesize\ttfamily vector$<$ int $>$ find\+Notches (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_d_c_e_l}{DCEL}} \&}]{polygon,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+report all notches in polygon. notch is one which is a reflex angle 
+
+
+\begin{DoxyParams}{Parameters}
+{\em polygon} & \\
+\hline
+{\em n} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a636faae1b097774b466f15c1f9515622}\label{main_8cpp_a636faae1b097774b466f15c1f9515622}} 
+\index{main.cpp@{main.cpp}!getNewLast@{getNewLast}}
+\index{getNewLast@{getNewLast}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getNewLast()}{getNewLast()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ get\+New\+Last (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_d_c_e_l}{DCEL}} \&}]{polygon,  }\item[{int}]{n,  }\item[{int}]{notch,  }\item[{shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&}]{first,  }\item[{shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&}]{last }\end{DoxyParamCaption})}
+
+
+
+shring rectangle by removing vertices which are unnecessary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em polygon} & \\
+\hline
+{\em n} & \\
+\hline
+{\em notch} & \\
+\hline
+{\em first} & \\
+\hline
+{\em last} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_ad6c296a1aaa0468f64b518756ffc0ead}\label{main_8cpp_ad6c296a1aaa0468f64b518756ffc0ead}} 
+\index{main.cpp@{main.cpp}!getVertices@{getVertices}}
+\index{getVertices@{getVertices}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getVertices()}{getVertices()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ float, float $>$ $>$ get\+Vertices (\begin{DoxyParamCaption}\item[{string}]{in\+File }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a61dcf5731a5925cba68692d0cf33fcda}\label{main_8cpp_a61dcf5731a5925cba68692d0cf33fcda}} 
+\index{main.cpp@{main.cpp}!isReflex@{isReflex}}
+\index{isReflex@{isReflex}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{isReflex()}{isReflex()}}
+{\footnotesize\ttfamily bool is\+Reflex (\begin{DoxyParamCaption}\item[{pair$<$ float, float $>$}]{v1,  }\item[{pair$<$ float, float $>$}]{v2,  }\item[{pair$<$ float, float $>$}]{v3 }\end{DoxyParamCaption})}
+
+
+
+check if angle \texorpdfstring{$>$}{>}= 180 degrees using cross product 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+{\em v3} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a179216be79ac52726cf7594eaabb954e}\label{main_8cpp_a179216be79ac52726cf7594eaabb954e}} 
+\index{main.cpp@{main.cpp}!lineEq@{lineEq}}
+\index{lineEq@{lineEq}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{lineEq()}{lineEq()}}
+{\footnotesize\ttfamily float line\+Eq (\begin{DoxyParamCaption}\item[{pair$<$ float, float $>$}]{val,  }\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{c }\end{DoxyParamCaption})}
+
+
+
+line\+Equation to check vertex in which halfplane 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & the point to check \\
+\hline
+{\em a} & a in a$\ast$x+b$\ast$y+c line equation \\
+\hline
+{\em b} & b in a$\ast$x+b$\ast$y+c line equation \\
+\hline
+{\em c} & c in a$\ast$x+b$\ast$y+c line equation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+greater or less than zero determining which halfplane 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+first take input from glutfunction as a drawing in ccw order, then process and draw the decomposition 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00244}{244}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+

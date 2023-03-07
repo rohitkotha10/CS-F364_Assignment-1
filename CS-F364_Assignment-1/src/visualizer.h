@@ -7,11 +7,9 @@
 #include <fstream>
 #include <vector>
 
-std::vector<std::vector<std::pair<int, int>>> normalize(
-    std::vector<std::vector<std::pair<float, float>>>& ansFloat, int scrSize);
-void getFaces(std::string file);
-void drawLines();
-
+/**
+ * @brief GLUT helper class to visualize polygons
+ */
 class GLUTVisualizer {
 public:
     void init();

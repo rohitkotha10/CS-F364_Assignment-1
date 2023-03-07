@@ -18,6 +18,13 @@ vector<pair<float, float>> getVertices(string inFile) {
     return ans;
 }
 
+/**
+ * @brief check if angle >= 180 degrees using cross product
+ * @param v1
+ * @param v2
+ * @param v3
+ * @return
+ */
 bool isReflex(pair<float, float> v1, pair<float, float> v2, pair<float, float> v3) {
     pair<float, float> vec1 = make_pair(v2.first - v1.first, v2.second - v1.second);
     pair<float, float> vec2 = make_pair(v3.first - v2.first, v3.second - v2.second);
@@ -25,6 +32,12 @@ bool isReflex(pair<float, float> v1, pair<float, float> v2, pair<float, float> v
     return cross < 0;
 }
 
+/**
+ * @brief report all notches in polygon. notch is one which is a reflex angle
+ * @param polygon
+ * @param n
+ * @return
+ */
 vector<int> findNotches(DCEL& polygon, int n) {
     vector<int> ans(n, 0);
     for (int i = 0; i < n; i++) {
@@ -40,10 +53,27 @@ vector<int> findNotches(DCEL& polygon, int n) {
     return ans;
 }
 
+/**
+ * @brief lineEquation to check vertex in which halfplane
+ * @param val the point to check
+ * @param a a in a*x+b*y+c line equation
+ * @param b b in a*x+b*y+c line equation
+ * @param c c in a*x+b*y+c line equation
+ * @return greater or less than zero determining which halfplane
+ */
 float lineEq(pair<float, float> val, float a, float b, float c) {
     return a * val.first + b * val.second + c;
 }
 
+/**
+ * @brief shring rectangle by removing vertices which are unnecessary
+ * @param polygon
+ * @param n
+ * @param notch
+ * @param first
+ * @param last
+ * @return
+ */
 shared_ptr<EdgeDCEL> getNewLast(
     DCEL& polygon, int n, int notch, shared_ptr<EdgeDCEL>& first, shared_ptr<EdgeDCEL>& last) {
     pair<float, float> notchval = polygon.vertexRecords[notch]->org;
@@ -69,6 +99,15 @@ shared_ptr<EdgeDCEL> getNewLast(
     return last;
 }
 
+/**
+ * @brief check if there are other vertices inside first-last edge and remove vertices according to algorithm
+ * @param polygon
+ * @param n
+ * @param first
+ * @param last
+ * @param notches
+ * @return
+ */
 pair<int, shared_ptr<EdgeDCEL>> checkNotchInside(
     DCEL& polygon, int n, shared_ptr<EdgeDCEL>& first, shared_ptr<EdgeDCEL>& last, vector<int>& notches) {
     while (true) {
@@ -129,6 +168,12 @@ pair<int, shared_ptr<EdgeDCEL>> checkNotchInside(
     return make_pair(pathdis, last);
 }
 
+/**
+ * @brief enumerate all facerecords while there is no new addition
+ * @param polygon
+ * @param n
+ * @param notches
+ */
 void decomposeIntoConvex(DCEL& polygon, int n, vector<int>& notches) {
     while (true) {
         int flag = 0;
@@ -192,6 +237,10 @@ void decomposeIntoConvex(DCEL& polygon, int n, vector<int>& notches) {
     }
 }
 
+/**
+ * @brief first take input from glutfunction as a drawing in ccw order, then process and draw the decomposition
+ * @return 
+*/
 int main() {
     GLUTVisualizer vis;
     vis.runInput();
