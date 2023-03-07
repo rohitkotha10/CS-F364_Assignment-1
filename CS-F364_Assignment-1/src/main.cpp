@@ -239,8 +239,8 @@ void decomposeIntoConvex(DCEL& polygon, int n, vector<int>& notches) {
 
 /**
  * @brief first take input from glutfunction as a drawing in ccw order, then process and draw the decomposition
- * @return 
-*/
+ * @return
+ */
 int main() {
     GLUTVisualizer vis;
     vis.runInput();

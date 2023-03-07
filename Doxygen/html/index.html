@@ -106,6 +106,24 @@
       </ul>
       <p>Here is a sample output from the application</p>
       <p><img src="../../Resources/sample.png" alt="sample" width="800"></p>
+      <h2 id="testing">Testing</h2>
+      <ul>
+        <li>I was able to test the algorithm on only small test cases with vertices from 20-30.</li>
+        <li>The visualizer I had made it easy to test on various examples</li>
+      </ul>
+      <h2 id="design-discussion">Design Discussion</h2>
+      <ul>
+        <li>I faced some trouble for adding an edge into my DCEL data structure</li>
+        <li>The way I traverse my polygon is by traversing the edges in in with the same incident face</li>
+        <li>When I add an Edge, the face associations change due to addition of a new face and a removal of a part of
+          the old</li>
+        <li>because of this I was able to find that I was just looping through the same face and not able to go forward
+        </li>
+        <li>so I have decided to simply enumerate all the faceRecords in the DCEL in each iteration.</li>
+        <li>each iteration may or may not add edges</li>
+        <li>when in a complete iteration I don&#39;t find any new additions, I declare my decomposition complete and end
+          my application</li>
+      </ul>
     </div>
   </body>
 
