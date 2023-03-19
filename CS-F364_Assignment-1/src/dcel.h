@@ -1,9 +1,9 @@
 #pragma once
-#include <vector>
-#include <memory>
-#include <algorithm>
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <memory>
+#include <string>
+#include <vector>
 
 class VertexDCEL;
 class EdgeDCEL;

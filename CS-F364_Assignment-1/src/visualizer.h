@@ -4,8 +4,9 @@
 
 #include <GL/freeglut.h>
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <string>
 #include <vector>
 
 /**
@@ -13,7 +14,6 @@
  */
 class GLUTVisualizer {
 public:
-    void init();
-    void runOutput();
-    void runInput();
+    void runInput(std::string inFile);
+    void runOutput(std::string outFile);
 };

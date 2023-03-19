@@ -1,9 +1,11 @@
 #pragma once
 #include "dcel.h"
 
-#include <iostream>
 #include <fstream>
-#include <tuple>
+#include <iostream>
+#include <memory>
+#include <string>
+#include <vector>
 
 class Decomposer {
 public:

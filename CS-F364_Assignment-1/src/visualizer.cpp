@@ -9,6 +9,7 @@ std::vector<pair<int, int>> pts;
 bool closed = false;
 bool flag = true;
 vector<vector<pair<int, int>>> ans;
+string inputFile;
 
 vector<vector<pair<int, int>>> normalize(vector<vector<pair<float, float>>>& ansFloat, int scrSize) {
     float maxX = ansFloat[0][0].first;
@@ -24,7 +25,7 @@ vector<vector<pair<int, int>>> normalize(vector<vector<pair<float, float>>>& ans
         };
     }
 
-    int scaler = 1;
+    int scaler = 1;  // change this scaler if you give input as text file
 
     vector<vector<pair<int, int>>> temp(ansFloat.size());
     for (int i = 0; i < ansFloat.size(); i++) {
@@ -38,24 +39,30 @@ vector<vector<pair<int, int>>> normalize(vector<vector<pair<float, float>>>& ans
     return temp;
 }
 
-void draw_polygon(int button, int state, int x, int y) {
+void getInputPolygon(int button, int state, int x, int y) {
     currentPt = make_pair(x, scrSize - y);
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-        if (closed) pts.clear();  // restart if last action was close
+        if (closed) glutDestroyWindow(glutGetWindow());  // restart if last action was close
         closed = false;
         pts.push_back(currentPt);
     }
-    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN) closed = true;
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN) {
+        if (closed == true)
+            glutDestroyWindow(glutGetWindow());
+        else
+            closed = true;
+    };
 }
 
-void mouse_move(int x, int y) {
+void mouseMove(int x, int y) {
     currentPt = make_pair(x, scrSize - y);
     glutPostRedisplay();
 }
 
-void display() {
-    glClearColor(0, 0, 0, 0);
+void displayInput() {
     glClear(GL_COLOR_BUFFER_BIT);
+    glColor3f(1.0, 1.0, 1.0);
+    glPointSize(5.0);
 
     if (!pts.empty()) {
         glBegin(GL_LINE_STRIP);
@@ -65,7 +72,7 @@ void display() {
         glVertex2f(endPt.first, endPt.second);
         glEnd();
         if (closed == true && flag == true) {
-            ofstream ofs("../tests/inputGLUT.txt");
+            ofstream ofs(inputFile);
             ofs << pts.size() << endl;
             for (int i = 0; i < pts.size(); i++) {
                 ofs << pts[i].first << ' ' << pts[i].second << endl;
@@ -111,7 +118,21 @@ void drawLines() {
     }
 }
 
-void GLUTVisualizer::init() {
+void drawOriginal() {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glColor3f(1.0, 0.0, 0.0);
+    glPointSize(5.0);
+
+    glBegin(GL_LINES);
+    for (int j = 0; j < ans[0].size() - 1; j++) {
+        glVertex2i(ans[0][j].first, ans[0][j].second);
+        glVertex2i(ans[0][j + 1].first, ans[0][j + 1].second);
+    }
+    glEnd();
+    glFlush();
+}
+
+void initWindow() {
     glClearColor(0, 0, 0, 0);
     glViewport(0, 0, scrSize, scrSize);
     glMatrixMode(GL_PROJECTION);
@@ -121,8 +142,8 @@ void GLUTVisualizer::init() {
     glLoadIdentity();
 }
 
-void GLUTVisualizer::runOutput() {
-    getFaces("../tests/output.txt");  // acts on the global variable ans to be used in drawLines
+void GLUTVisualizer::runOutput(string outFile) {
+    getFaces(outFile);  // acts on the global variable ans to be used in drawLines
     int argc = 1;
     char* argv[1] = {(char*)""};
     glutInit(&argc, argv);
@@ -131,13 +152,20 @@ void GLUTVisualizer::runOutput() {
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
     glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
 
+    glutCreateWindow("Original Input");
+    initWindow();
+    glutDisplayFunc(drawOriginal);
+
+    glutInitWindowPosition(710, 10);
     glutCreateWindow("Polygon Decomposition");
-    this->init();
+    initWindow();
     glutDisplayFunc(drawLines);
+
     glutMainLoop();
 }
 
-void GLUTVisualizer::runInput() {
+void GLUTVisualizer::runInput(string inFile) {
+    inputFile = inFile;
     int argc = 1;
     char* argv[1] = {(char*)""};
     glutInit(&argc, argv);
@@ -147,9 +175,9 @@ void GLUTVisualizer::runInput() {
     glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
 
     glutCreateWindow("Input Polygon");
-    this->init();
-    glutDisplayFunc(display);
-    glutPassiveMotionFunc(mouse_move);
-    glutMouseFunc(draw_polygon);
+    initWindow();
+    glutDisplayFunc(displayInput);
+    glutPassiveMotionFunc(mouseMove);
+    glutMouseFunc(getInputPolygon);
     glutMainLoop();
 }

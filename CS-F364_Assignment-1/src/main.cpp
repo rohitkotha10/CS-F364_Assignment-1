@@ -1,11 +1,5 @@
-#include "dcel.h"
 #include "decomposer.h"
 #include "visualizer.h"
-
-#include <vector>
-#include <string>
-#include <iostream>
-#include <fstream>
 
 using namespace std;
 
@@ -14,14 +8,18 @@ using namespace std;
  * @return
  */
 int main() {
+    string inFile = "../tests/inputGLUT.txt";
+    string outFile = "../tests/output.txt";
+
     GLUTVisualizer vis;
-    vis.runInput();  // input data written to text file
+    // make sure you draw the polygon in counter-clockwise order
+    vis.runInput(inFile);  // input data written to text file
 
     Decomposer dec;
-    dec.processVerts("../tests/inputGLUT.txt");
+    dec.processVerts(inFile);
     dec.decomposeIntoConvex();
-    dec.polygon.printFaces("../tests/output.txt");
+    dec.polygon.printFaces(outFile);
 
-    vis.runOutput();  // output data read from text file
+    vis.runOutput(outFile);  // output data read from text file
     return 0;
 }
