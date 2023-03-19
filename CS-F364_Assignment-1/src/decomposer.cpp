@@ -46,59 +46,55 @@ void Decomposer::findNotches() {
 void Decomposer::decomposeIntoConvex() {
     while (true) {
         int flag = 0;
-        // skip the infFace 0 and only start from 1
-        for (int i = 1; i < polygon.faceRecords.size(); i++) {
-            shared_ptr<EdgeDCEL> curEdge = polygon.faceRecords[i]->incEdge;
-            shared_ptr<EdgeDCEL> efir = curEdge;
-            shared_ptr<EdgeDCEL> efirplus1 = curEdge->next;
-            curEdge = curEdge->next;
-            int edgeChange = 1;  // to pass while loop and continue from edge start
-            int pathdis = 2;
 
-            // terminate when the face is looped and we return back
-            while (curEdge.get() != polygon.faceRecords[i]->incEdge.get()) {
-                if (edgeChange == 1) {
-                    edgeChange = 0;
-                    curEdge = polygon.faceRecords[i]->incEdge;
-                }
-                shared_ptr<EdgeDCEL> ei = curEdge;
-                shared_ptr<EdgeDCEL> eiplus1 = curEdge->next;
-                shared_ptr<EdgeDCEL> eiplus2 = curEdge->next->next;
-                if (isReflex(ei->org->org, eiplus1->org->org, eiplus2->org->org) ||
-                    isReflex(eiplus1->org->org, eiplus2->org->org, efir->org->org) ||
-                    isReflex(eiplus2->org->org, efir->org->org, efirplus1->org->org)) {
-                    if (pathdis == 2) {
-                        curEdge = curEdge->next;
-                        efir = curEdge;
-                        efirplus1 = curEdge->next;
-                    } else {
-                        // process with the rectangle and then add the appropriate part
-                        // ends is returning the last point where the polygon ends after division and the path length
-                        pair<int, shared_ptr<EdgeDCEL>> endPath = checkNotchInside(efir, eiplus1);
-                        if (endPath.first >= 2) {
-                            if (polygon.existEdge(efir, endPath.second))  // stop looping face
-                                break;
-                            else {
-                                polygon.addEdge(efir, endPath.second);
-                                curEdge = endPath.second;
-                                efir = curEdge;
-                                efirplus1 = curEdge->next;
-                                pathdis = 2;
-                                flag = 1;
-                            }
-                        } else {
-                            efir = efir->next;
-                            curEdge = efir;
-                            efirplus1 = efir->next;
+        shared_ptr<EdgeDCEL> curEdge = polygon.faceRecords[1]->incEdge;
+        shared_ptr<EdgeDCEL> efir = curEdge;
+        shared_ptr<EdgeDCEL> efirplus1 = curEdge->next;
+        int startWhile = 1;  // to pass while loop and continue from edge start
+        int pathdis = 2;
+
+        // terminate when the face is looped and we return back
+        while (startWhile == 1 || efir.get() != polygon.faceRecords[1]->incEdge.get()) {
+            if (pathdis > vertSize) break;
+            if (startWhile == 1 && efir.get() != polygon.faceRecords[1]->incEdge.get()) { startWhile = 0; }
+            shared_ptr<EdgeDCEL> ei = curEdge;
+            shared_ptr<EdgeDCEL> eiplus1 = curEdge->next;
+            shared_ptr<EdgeDCEL> eiplus2 = curEdge->next->next;
+            if (isReflex(ei->org->org, eiplus1->org->org, eiplus2->org->org) ||
+                isReflex(eiplus1->org->org, eiplus2->org->org, efir->org->org) ||
+                isReflex(eiplus2->org->org, efir->org->org, efirplus1->org->org)) {
+                if (pathdis == 2) {
+                    curEdge = curEdge->next;
+                    efir = curEdge;
+                    efirplus1 = curEdge->next;
+                } else {
+                    // process with the rectangle and then add the appropriate part
+                    // ends is returning the last point where the polygon ends after division and the path length
+                    pair<int, shared_ptr<EdgeDCEL>> endPath = checkNotchInside(efir, eiplus1);
+                    if (endPath.first >= 2) {
+                        if (polygon.existEdge(efir, endPath.second))  // stop looping face
+                            break;
+                        else {
+                            polygon.addEdge(efir, endPath.second);
+                            flag = 1;
+                            curEdge = endPath.second;
+                            efir = curEdge;
+                            efirplus1 = curEdge->next;
                             pathdis = 2;
                         }
+                    } else {
+                        efir = efir->next;
+                        curEdge = efir;
+                        efirplus1 = efir->next;
+                        pathdis = 2;
                     }
-                } else {
-                    pathdis++;
-                    curEdge = curEdge->next;
                 }
+            } else {
+                pathdis++;
+                curEdge = curEdge->next;
             }
         }
+
         if (flag == 0) return;
     }
 }

@@ -1,0 +1,69 @@
+\hypertarget{decomposer_8h}{}\doxysection{C\+:/\+Users/\+Rohit/\+Desktop/\+CS-\/\+F364\+\_\+\+Assignment-\/1/\+CS-\/\+F364\+\_\+\+Assignment-\/1/src/decomposer.h File Reference}
+\label{decomposer_8h}\index{C:/Users/Rohit/Desktop/CS-\/F364\_Assignment-\/1/CS-\/F364\_Assignment-\/1/src/decomposer.h@{C:/Users/Rohit/Desktop/CS-\/F364\_Assignment-\/1/CS-\/F364\_Assignment-\/1/src/decomposer.h}}
+{\ttfamily \#include \char`\"{}dcel.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_decomposer}{Decomposer}}
+\begin{DoxyCompactList}\small\item\em class to execute decompose function \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{decomposer_8h_ad6d02e42ef6977d0faa2c9b776db9bff}{is\+Reflex}} (std\+::pair$<$ float, float $>$ v1, std\+::pair$<$ float, float $>$ v2, std\+::pair$<$ float, float $>$ v3)
+\begin{DoxyCompactList}\small\item\em check if angle \texorpdfstring{$>$}{>}= 180 degrees using cross product \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{decomposer_8h_a2b9fd07020cb3412c01fb39c5466bfbd}{line\+Eq}} (std\+::pair$<$ float, float $>$ val, float a, float b, float c)
+\begin{DoxyCompactList}\small\item\em line\+Equation to check vertex in which halfplane \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{decomposer_8h_ad6d02e42ef6977d0faa2c9b776db9bff}\label{decomposer_8h_ad6d02e42ef6977d0faa2c9b776db9bff}} 
+\index{decomposer.h@{decomposer.h}!isReflex@{isReflex}}
+\index{isReflex@{isReflex}!decomposer.h@{decomposer.h}}
+\doxysubsubsection{\texorpdfstring{isReflex()}{isReflex()}}
+{\footnotesize\ttfamily bool is\+Reflex (\begin{DoxyParamCaption}\item[{std\+::pair$<$ float, float $>$}]{v1,  }\item[{std\+::pair$<$ float, float $>$}]{v2,  }\item[{std\+::pair$<$ float, float $>$}]{v3 }\end{DoxyParamCaption})}
+
+
+
+check if angle \texorpdfstring{$>$}{>}= 180 degrees using cross product 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+{\em v3} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{decomposer_8h_a2b9fd07020cb3412c01fb39c5466bfbd}\label{decomposer_8h_a2b9fd07020cb3412c01fb39c5466bfbd}} 
+\index{decomposer.h@{decomposer.h}!lineEq@{lineEq}}
+\index{lineEq@{lineEq}!decomposer.h@{decomposer.h}}
+\doxysubsubsection{\texorpdfstring{lineEq()}{lineEq()}}
+{\footnotesize\ttfamily float line\+Eq (\begin{DoxyParamCaption}\item[{std\+::pair$<$ float, float $>$}]{val,  }\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{c }\end{DoxyParamCaption})}
+
+
+
+line\+Equation to check vertex in which halfplane 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & the point to check \\
+\hline
+{\em a} & a in a$\ast$x+b$\ast$y+c line equation \\
+\hline
+{\em b} & b in a$\ast$x+b$\ast$y+c line equation \\
+\hline
+{\em c} & c in a$\ast$x+b$\ast$y+c line equation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+greater or less than zero determining which halfplane 
+\end{DoxyReturn}

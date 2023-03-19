@@ -90,15 +90,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab8440056e62d365e7a2fd73bfc582e3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_c_e_l.html#ab8440056e62d365e7a2fd73bfc582e3b">printFaces</a> (std::string file)</td></tr>
 <tr class="memdesc:ab8440056e62d365e7a2fd73bfc582e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints all the faces along with their vertices  <br /></td></tr>
 <tr class="separator:ab8440056e62d365e7a2fd73bfc582e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34e82ecac808882a7136b09470e6b8c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_c_e_l.html#a34e82ecac808882a7136b09470e6b8c0">addEdge</a> (int i, int j)</td></tr>
-<tr class="memdesc:a34e82ecac808882a7136b09470e6b8c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an edge to decompose  <br /></td></tr>
-<tr class="separator:a34e82ecac808882a7136b09470e6b8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4b422c66af0f3536f024b11a49fcd2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_c_e_l.html#ad4b422c66af0f3536f024b11a49fcd2e">existEdge</a> (int i, int j)</td></tr>
-<tr class="memdesc:ad4b422c66af0f3536f024b11a49fcd2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if there is an edge  <br /></td></tr>
-<tr class="separator:ad4b422c66af0f3536f024b11a49fcd2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55e977e6e671fc365e52ca0a10510e6c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_c_e_l.html#a55e977e6e671fc365e52ca0a10510e6c">getVertexInd</a> (std::pair&lt; float, float &gt; val)</td></tr>
-<tr class="memdesc:a55e977e6e671fc365e52ca0a10510e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the index in vertexRecords for ease of traversal and notation  <br /></td></tr>
-<tr class="separator:a55e977e6e671fc365e52ca0a10510e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2dc6bad344e9a9ad1a96c15946cc1a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_c_e_l.html#ae2dc6bad344e9a9ad1a96c15946cc1a2">addEdge</a> (std::shared_ptr&lt; <a class="el" href="class_edge_d_c_e_l.html">EdgeDCEL</a> &gt; e1, std::shared_ptr&lt; <a class="el" href="class_edge_d_c_e_l.html">EdgeDCEL</a> &gt; e2)</td></tr>
+<tr class="memdesc:ae2dc6bad344e9a9ad1a96c15946cc1a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an edge to decompose  <br /></td></tr>
+<tr class="separator:ae2dc6bad344e9a9ad1a96c15946cc1a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1a634e6fa58184f73e22c3163e6a396"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_c_e_l.html#aa1a634e6fa58184f73e22c3163e6a396">existEdge</a> (std::shared_ptr&lt; <a class="el" href="class_edge_d_c_e_l.html">EdgeDCEL</a> &gt; e1, std::shared_ptr&lt; <a class="el" href="class_edge_d_c_e_l.html">EdgeDCEL</a> &gt; e2)</td></tr>
+<tr class="memdesc:aa1a634e6fa58184f73e22c3163e6a396"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if there is an edge  <br /></td></tr>
+<tr class="separator:aa1a634e6fa58184f73e22c3163e6a396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07d2754bd67f48f6b31af285a3cc0906"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_c_e_l.html#a07d2754bd67f48f6b31af285a3cc0906">getVertexInd</a> (std::shared_ptr&lt; <a class="el" href="class_vertex_d_c_e_l.html">VertexDCEL</a> &gt; vert)</td></tr>
+<tr class="memdesc:a07d2754bd67f48f6b31af285a3cc0906"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the index in vertexRecords for ease of traversal and notation  <br /></td></tr>
+<tr class="separator:a07d2754bd67f48f6b31af285a3cc0906"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -112,10 +112,10 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>stores the polygon object in a <a class="el" href="class_d_c_e_l.html" title="stores the polygon object in a DCEL">DCEL</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="dcel_8h_source.html#l00049">49</a> of file <a class="el" href="dcel_8h_source.html">dcel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dcel_8h_source.html#l00051">51</a> of file <a class="el" href="dcel_8h_source.html">dcel.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a34e82ecac808882a7136b09470e6b8c0" name="a34e82ecac808882a7136b09470e6b8c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34e82ecac808882a7136b09470e6b8c0">&#9670;&#160;</a></span>addEdge()</h2>
+<a id="ae2dc6bad344e9a9ad1a96c15946cc1a2" name="ae2dc6bad344e9a9ad1a96c15946cc1a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2dc6bad344e9a9ad1a96c15946cc1a2">&#9670;&#160;</a></span>addEdge()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -123,14 +123,14 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void DCEL::addEdge </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_edge_d_c_e_l.html">EdgeDCEL</a> &gt;&#160;</td>
+          <td class="paramname"><em>e1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>j</em>&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_edge_d_c_e_l.html">EdgeDCEL</a> &gt;&#160;</td>
+          <td class="paramname"><em>e2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -143,8 +143,8 @@ Public Attributes</h2></td></tr>
 <p>add an edge to decompose </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>first vertex </td></tr>
-    <tr><td class="paramname">j</td><td>second vertex </td></tr>
+    <tr><td class="paramname">e1</td><td>first edge </td></tr>
+    <tr><td class="paramname">e2</td><td>second edge </td></tr>
   </table>
   </dd>
 </dl>
@@ -181,8 +181,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad4b422c66af0f3536f024b11a49fcd2e" name="ad4b422c66af0f3536f024b11a49fcd2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4b422c66af0f3536f024b11a49fcd2e">&#9670;&#160;</a></span>existEdge()</h2>
+<a id="aa1a634e6fa58184f73e22c3163e6a396" name="aa1a634e6fa58184f73e22c3163e6a396"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1a634e6fa58184f73e22c3163e6a396">&#9670;&#160;</a></span>existEdge()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -190,14 +190,14 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool DCEL::existEdge </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_edge_d_c_e_l.html">EdgeDCEL</a> &gt;&#160;</td>
+          <td class="paramname"><em>e1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>j</em>&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_edge_d_c_e_l.html">EdgeDCEL</a> &gt;&#160;</td>
+          <td class="paramname"><em>e2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -210,19 +210,19 @@ Public Attributes</h2></td></tr>
 <p>check if there is an edge </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>first vertex </td></tr>
-    <tr><td class="paramname">j</td><td>second vertex </td></tr>
+    <tr><td class="paramname">e1</td><td>first edge </td></tr>
+    <tr><td class="paramname">e2</td><td>second edge </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if there is an edge between i and j </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if there is an edge between origins of e1 and e2 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="dcel_8cpp_source.html#l00132">132</a> of file <a class="el" href="dcel_8cpp_source.html">dcel.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dcel_8cpp_source.html#l00137">137</a> of file <a class="el" href="dcel_8cpp_source.html">dcel.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a55e977e6e671fc365e52ca0a10510e6c" name="a55e977e6e671fc365e52ca0a10510e6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55e977e6e671fc365e52ca0a10510e6c">&#9670;&#160;</a></span>getVertexInd()</h2>
+<a id="a07d2754bd67f48f6b31af285a3cc0906" name="a07d2754bd67f48f6b31af285a3cc0906"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07d2754bd67f48f6b31af285a3cc0906">&#9670;&#160;</a></span>getVertexInd()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,8 +230,8 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">int DCEL::getVertexInd </td>
           <td>(</td>
-          <td class="paramtype">std::pair&lt; float, float &gt;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_vertex_d_c_e_l.html">VertexDCEL</a> &gt;&#160;</td>
+          <td class="paramname"><em>vert</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -246,7 +246,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the poisition i in vertexRecords[i] </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="dcel_8cpp_source.html#l00141">141</a> of file <a class="el" href="dcel_8cpp_source.html">dcel.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dcel_8cpp_source.html#l00146">146</a> of file <a class="el" href="dcel_8cpp_source.html">dcel.cpp</a>.</p>
 
 </div>
 </div>
@@ -291,7 +291,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dcel_8h_source.html#l00082">82</a> of file <a class="el" href="dcel_8h_source.html">dcel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dcel_8h_source.html#l00088">88</a> of file <a class="el" href="dcel_8h_source.html">dcel.h</a>.</p>
 
 </div>
 </div>
@@ -307,7 +307,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dcel_8h_source.html#l00083">83</a> of file <a class="el" href="dcel_8h_source.html">dcel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dcel_8h_source.html#l00089">89</a> of file <a class="el" href="dcel_8h_source.html">dcel.h</a>.</p>
 
 </div>
 </div>
@@ -323,13 +323,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dcel_8h_source.html#l00081">81</a> of file <a class="el" href="dcel_8h_source.html">dcel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dcel_8h_source.html#l00087">87</a> of file <a class="el" href="dcel_8h_source.html">dcel.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Rohit/Desktop/3-2/CS-F364/Evals/Assignment-1/CS-F364_Assignment-1/src/<a class="el" href="dcel_8h_source.html">dcel.h</a></li>
-<li>C:/Users/Rohit/Desktop/3-2/CS-F364/Evals/Assignment-1/CS-F364_Assignment-1/src/<a class="el" href="dcel_8cpp_source.html">dcel.cpp</a></li>
+<li>C:/Users/Rohit/Desktop/CS-F364_Assignment-1/CS-F364_Assignment-1/src/<a class="el" href="dcel_8h_source.html">dcel.h</a></li>
+<li>C:/Users/Rohit/Desktop/CS-F364_Assignment-1/CS-F364_Assignment-1/src/<a class="el" href="dcel_8cpp_source.html">dcel.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

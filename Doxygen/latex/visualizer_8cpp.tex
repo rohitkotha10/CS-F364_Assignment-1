@@ -1,20 +1,24 @@
-\hypertarget{visualizer_8cpp}{}\doxysection{C\+:/\+Users/\+Rohit/\+Desktop/3-\/2/\+CS-\/\+F364/\+Evals/\+Assignment-\/1/\+CS-\/\+F364\+\_\+\+Assignment-\/1/src/visualizer.cpp File Reference}
-\label{visualizer_8cpp}\index{C:/Users/Rohit/Desktop/3-\/2/CS-\/F364/Evals/Assignment-\/1/CS-\/F364\_Assignment-\/1/src/visualizer.cpp@{C:/Users/Rohit/Desktop/3-\/2/CS-\/F364/Evals/Assignment-\/1/CS-\/F364\_Assignment-\/1/src/visualizer.cpp}}
+\hypertarget{visualizer_8cpp}{}\doxysection{C\+:/\+Users/\+Rohit/\+Desktop/\+CS-\/\+F364\+\_\+\+Assignment-\/1/\+CS-\/\+F364\+\_\+\+Assignment-\/1/src/visualizer.cpp File Reference}
+\label{visualizer_8cpp}\index{C:/Users/Rohit/Desktop/CS-\/F364\_Assignment-\/1/CS-\/F364\_Assignment-\/1/src/visualizer.cpp@{C:/Users/Rohit/Desktop/CS-\/F364\_Assignment-\/1/CS-\/F364\_Assignment-\/1/src/visualizer.cpp}}
 {\ttfamily \#include \char`\"{}visualizer.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 vector$<$ vector$<$ pair$<$ int, int $>$ $>$ $>$ \mbox{\hyperlink{visualizer_8cpp_adbc7b313e971bb79135f4e411fff0310}{normalize}} (vector$<$ vector$<$ pair$<$ float, float $>$ $>$ $>$ \&ans\+Float, int \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scr\+Size}})
 \item 
-void \mbox{\hyperlink{visualizer_8cpp_a10d41fbf47a969fc508c497ec7dabb6b}{draw\+\_\+polygon}} (int button, int state, int x, int y)
+void \mbox{\hyperlink{visualizer_8cpp_a12adad629997810dd1b2f4507bdb93d5}{get\+Input\+Polygon}} (int button, int state, int x, int y)
 \item 
-void \mbox{\hyperlink{visualizer_8cpp_ae3e625e68449be036ab80baa9ce917d8}{mouse\+\_\+move}} (int x, int y)
+void \mbox{\hyperlink{visualizer_8cpp_ad98e38d016ad1258ee8592beffa21c93}{mouse\+Move}} (int x, int y)
 \item 
-void \mbox{\hyperlink{visualizer_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}{display}} ()
+void \mbox{\hyperlink{visualizer_8cpp_a57ef2d1f15bc7bbdbc4b2da95dca3871}{display\+Input}} ()
 \item 
 void \mbox{\hyperlink{visualizer_8cpp_af7a0b6c5057af4033e1aad95b707d18d}{get\+Faces}} (string file)
 \item 
 void \mbox{\hyperlink{visualizer_8cpp_ad7083c774260381ede786d0f52f62afc}{draw\+Lines}} ()
+\item 
+void \mbox{\hyperlink{visualizer_8cpp_a4b04f2a7177aceae2eb92f9c97087e20}{draw\+Original}} ()
+\item 
+void \mbox{\hyperlink{visualizer_8cpp_a03df8f8f83badef1eac9386c1ddfe331}{init\+Window}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -30,29 +34,21 @@ bool \mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}
 bool \mbox{\hyperlink{visualizer_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}} = true
 \item 
 vector$<$ vector$<$ pair$<$ int, int $>$ $>$ $>$ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}
+\item 
+string \mbox{\hyperlink{visualizer_8cpp_a5e9f951ac74e1226535d038b1893d4a1}{input\+File}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{visualizer_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}\label{visualizer_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}} 
-\index{visualizer.cpp@{visualizer.cpp}!display@{display}}
-\index{display@{display}!visualizer.cpp@{visualizer.cpp}}
-\doxysubsubsection{\texorpdfstring{display()}{display()}}
-{\footnotesize\ttfamily void display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{visualizer_8cpp_a57ef2d1f15bc7bbdbc4b2da95dca3871}\label{visualizer_8cpp_a57ef2d1f15bc7bbdbc4b2da95dca3871}} 
+\index{visualizer.cpp@{visualizer.cpp}!displayInput@{displayInput}}
+\index{displayInput@{displayInput}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{displayInput()}{displayInput()}}
+{\footnotesize\ttfamily void display\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
-
-\mbox{\Hypertarget{visualizer_8cpp_a10d41fbf47a969fc508c497ec7dabb6b}\label{visualizer_8cpp_a10d41fbf47a969fc508c497ec7dabb6b}} 
-\index{visualizer.cpp@{visualizer.cpp}!draw\_polygon@{draw\_polygon}}
-\index{draw\_polygon@{draw\_polygon}!visualizer.cpp@{visualizer.cpp}}
-\doxysubsubsection{\texorpdfstring{draw\_polygon()}{draw\_polygon()}}
-{\footnotesize\ttfamily void draw\+\_\+polygon (\begin{DoxyParamCaption}\item[{int}]{button,  }\item[{int}]{state,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
 
 \mbox{\Hypertarget{visualizer_8cpp_ad7083c774260381ede786d0f52f62afc}\label{visualizer_8cpp_ad7083c774260381ede786d0f52f62afc}} 
 \index{visualizer.cpp@{visualizer.cpp}!drawLines@{drawLines}}
@@ -62,7 +58,17 @@ Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00041}{41}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_a4b04f2a7177aceae2eb92f9c97087e20}\label{visualizer_8cpp_a4b04f2a7177aceae2eb92f9c97087e20}} 
+\index{visualizer.cpp@{visualizer.cpp}!drawOriginal@{drawOriginal}}
+\index{drawOriginal@{drawOriginal}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{drawOriginal()}{drawOriginal()}}
+{\footnotesize\ttfamily void draw\+Original (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00121}{121}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
 
 \mbox{\Hypertarget{visualizer_8cpp_af7a0b6c5057af4033e1aad95b707d18d}\label{visualizer_8cpp_af7a0b6c5057af4033e1aad95b707d18d}} 
 \index{visualizer.cpp@{visualizer.cpp}!getFaces@{getFaces}}
@@ -72,17 +78,37 @@ Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00099}{99}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00079}{79}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
 
-\mbox{\Hypertarget{visualizer_8cpp_ae3e625e68449be036ab80baa9ce917d8}\label{visualizer_8cpp_ae3e625e68449be036ab80baa9ce917d8}} 
-\index{visualizer.cpp@{visualizer.cpp}!mouse\_move@{mouse\_move}}
-\index{mouse\_move@{mouse\_move}!visualizer.cpp@{visualizer.cpp}}
-\doxysubsubsection{\texorpdfstring{mouse\_move()}{mouse\_move()}}
-{\footnotesize\ttfamily void mouse\+\_\+move (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{visualizer_8cpp_a12adad629997810dd1b2f4507bdb93d5}\label{visualizer_8cpp_a12adad629997810dd1b2f4507bdb93d5}} 
+\index{visualizer.cpp@{visualizer.cpp}!getInputPolygon@{getInputPolygon}}
+\index{getInputPolygon@{getInputPolygon}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{getInputPolygon()}{getInputPolygon()}}
+{\footnotesize\ttfamily void get\+Input\+Polygon (\begin{DoxyParamCaption}\item[{int}]{button,  }\item[{int}]{state,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_a03df8f8f83badef1eac9386c1ddfe331}\label{visualizer_8cpp_a03df8f8f83badef1eac9386c1ddfe331}} 
+\index{visualizer.cpp@{visualizer.cpp}!initWindow@{initWindow}}
+\index{initWindow@{initWindow}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{initWindow()}{initWindow()}}
+{\footnotesize\ttfamily void init\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_ad98e38d016ad1258ee8592beffa21c93}\label{visualizer_8cpp_ad98e38d016ad1258ee8592beffa21c93}} 
+\index{visualizer.cpp@{visualizer.cpp}!mouseMove@{mouseMove}}
+\index{mouseMove@{mouseMove}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{mouseMove()}{mouseMove()}}
+{\footnotesize\ttfamily void mouse\+Move (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
 
 \mbox{\Hypertarget{visualizer_8cpp_adbc7b313e971bb79135f4e411fff0310}\label{visualizer_8cpp_adbc7b313e971bb79135f4e411fff0310}} 
 \index{visualizer.cpp@{visualizer.cpp}!normalize@{normalize}}
@@ -92,7 +118,7 @@ Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00051}{51}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
 
 
 
@@ -136,6 +162,16 @@ Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00007}{7}} of file \
 
 
 Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
+
+\mbox{\Hypertarget{visualizer_8cpp_a5e9f951ac74e1226535d038b1893d4a1}\label{visualizer_8cpp_a5e9f951ac74e1226535d038b1893d4a1}} 
+\index{visualizer.cpp@{visualizer.cpp}!inputFile@{inputFile}}
+\index{inputFile@{inputFile}!visualizer.cpp@{visualizer.cpp}}
+\doxysubsubsection{\texorpdfstring{inputFile}{inputFile}}
+{\footnotesize\ttfamily string input\+File}
+
+
+
+Definition at line \mbox{\hyperlink{visualizer_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{visualizer_8cpp_source}{visualizer.\+cpp}}.
 
 \mbox{\Hypertarget{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}\label{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}} 
 \index{visualizer.cpp@{visualizer.cpp}!pts@{pts}}

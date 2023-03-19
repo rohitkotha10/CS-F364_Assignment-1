@@ -7,6 +7,9 @@
 #include <string>
 #include <vector>
 
+/**
+ * @brief class to execute decompose function
+ */
 class Decomposer {
 public:
     /**

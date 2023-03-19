@@ -1,0 +1,182 @@
+\hypertarget{class_decomposer}{}\doxysection{Decomposer Class Reference}
+\label{class_decomposer}\index{Decomposer@{Decomposer}}
+
+
+class to execute decompose function  
+
+
+
+
+{\ttfamily \#include $<$decomposer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_decomposer_ac1c7b88f403b27b18639f3b6caaf397b}{process\+Verts}} (std\+::string in\+File)
+\begin{DoxyCompactList}\small\item\em get the verts from file into a \mbox{\hyperlink{class_d_c_e_l}{DCEL}} structure \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_decomposer_af01eeb01a3cfca8e5194b839737dac8c}{decompose\+Into\+Convex}} ()
+\begin{DoxyCompactList}\small\item\em enumerate all facerecords while there is no new addition \end{DoxyCompactList}\item 
+std\+::pair$<$ int, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ $>$ \mbox{\hyperlink{class_decomposer_a7d2fdfe7213ed2fcf95a18fa94a0bcd3}{check\+Notch\+Inside}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&first, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&last)
+\begin{DoxyCompactList}\small\item\em check if there are other vertices inside first-\/last edge and remove vertices according to algorithm \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \mbox{\hyperlink{class_decomposer_a4c135c265c0e185b60aaab26b1237941}{get\+New\+Last}} (int notch, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&first, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&last)
+\begin{DoxyCompactList}\small\item\em shrink rectangle by removing vertices which are unnecessary \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_decomposer_a6abafcf92c2b382807134e7dc2a21155}{find\+Notches}} ()
+\begin{DoxyCompactList}\small\item\em report all notches in polygon. notch is one which is a reflex angle \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_c_e_l}{DCEL}} \mbox{\hyperlink{class_decomposer_a74b7eafcb2daa395434b6d60229dc6b9}{polygon}}
+\item 
+int \mbox{\hyperlink{class_decomposer_ab784bf15cb352a0aa3a53125e89891d1}{vert\+Size}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_decomposer_ac7bc9fa2fae80464e4497ccebbb3b3ff}{notches}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class to execute decompose function 
+
+Definition at line \mbox{\hyperlink{decomposer_8h_source_l00013}{13}} of file \mbox{\hyperlink{decomposer_8h_source}{decomposer.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_decomposer_a7d2fdfe7213ed2fcf95a18fa94a0bcd3}\label{class_decomposer_a7d2fdfe7213ed2fcf95a18fa94a0bcd3}} 
+\index{Decomposer@{Decomposer}!checkNotchInside@{checkNotchInside}}
+\index{checkNotchInside@{checkNotchInside}!Decomposer@{Decomposer}}
+\doxysubsubsection{\texorpdfstring{checkNotchInside()}{checkNotchInside()}}
+{\footnotesize\ttfamily pair$<$ int, shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ $>$ Decomposer\+::check\+Notch\+Inside (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&}]{first,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&}]{last }\end{DoxyParamCaption})}
+
+
+
+check if there are other vertices inside first-\/last edge and remove vertices according to algorithm 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & \\
+\hline
+{\em last} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{decomposer_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{decomposer_8cpp_source}{decomposer.\+cpp}}.
+
+\mbox{\Hypertarget{class_decomposer_af01eeb01a3cfca8e5194b839737dac8c}\label{class_decomposer_af01eeb01a3cfca8e5194b839737dac8c}} 
+\index{Decomposer@{Decomposer}!decomposeIntoConvex@{decomposeIntoConvex}}
+\index{decomposeIntoConvex@{decomposeIntoConvex}!Decomposer@{Decomposer}}
+\doxysubsubsection{\texorpdfstring{decomposeIntoConvex()}{decomposeIntoConvex()}}
+{\footnotesize\ttfamily void Decomposer\+::decompose\+Into\+Convex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+enumerate all facerecords while there is no new addition 
+
+
+
+Definition at line \mbox{\hyperlink{decomposer_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{decomposer_8cpp_source}{decomposer.\+cpp}}.
+
+\mbox{\Hypertarget{class_decomposer_a6abafcf92c2b382807134e7dc2a21155}\label{class_decomposer_a6abafcf92c2b382807134e7dc2a21155}} 
+\index{Decomposer@{Decomposer}!findNotches@{findNotches}}
+\index{findNotches@{findNotches}!Decomposer@{Decomposer}}
+\doxysubsubsection{\texorpdfstring{findNotches()}{findNotches()}}
+{\footnotesize\ttfamily void Decomposer\+::find\+Notches (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+report all notches in polygon. notch is one which is a reflex angle 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{decomposer_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{decomposer_8cpp_source}{decomposer.\+cpp}}.
+
+\mbox{\Hypertarget{class_decomposer_a4c135c265c0e185b60aaab26b1237941}\label{class_decomposer_a4c135c265c0e185b60aaab26b1237941}} 
+\index{Decomposer@{Decomposer}!getNewLast@{getNewLast}}
+\index{getNewLast@{getNewLast}!Decomposer@{Decomposer}}
+\doxysubsubsection{\texorpdfstring{getNewLast()}{getNewLast()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ Decomposer\+::get\+New\+Last (\begin{DoxyParamCaption}\item[{int}]{notch,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&}]{first,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ \&}]{last }\end{DoxyParamCaption})}
+
+
+
+shrink rectangle by removing vertices which are unnecessary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em notch} & \\
+\hline
+{\em first} & \\
+\hline
+{\em last} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{decomposer_8cpp_source_l00149}{149}} of file \mbox{\hyperlink{decomposer_8cpp_source}{decomposer.\+cpp}}.
+
+\mbox{\Hypertarget{class_decomposer_ac1c7b88f403b27b18639f3b6caaf397b}\label{class_decomposer_ac1c7b88f403b27b18639f3b6caaf397b}} 
+\index{Decomposer@{Decomposer}!processVerts@{processVerts}}
+\index{processVerts@{processVerts}!Decomposer@{Decomposer}}
+\doxysubsubsection{\texorpdfstring{processVerts()}{processVerts()}}
+{\footnotesize\ttfamily void Decomposer\+::process\+Verts (\begin{DoxyParamCaption}\item[{std\+::string}]{in\+File }\end{DoxyParamCaption})}
+
+
+
+get the verts from file into a \mbox{\hyperlink{class_d_c_e_l}{DCEL}} structure 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+File} & path for input data \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{decomposer_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{decomposer_8cpp_source}{decomposer.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_decomposer_ac7bc9fa2fae80464e4497ccebbb3b3ff}\label{class_decomposer_ac7bc9fa2fae80464e4497ccebbb3b3ff}} 
+\index{Decomposer@{Decomposer}!notches@{notches}}
+\index{notches@{notches}!Decomposer@{Decomposer}}
+\doxysubsubsection{\texorpdfstring{notches}{notches}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Decomposer\+::notches}
+
+
+
+Definition at line \mbox{\hyperlink{decomposer_8h_source_l00052}{52}} of file \mbox{\hyperlink{decomposer_8h_source}{decomposer.\+h}}.
+
+\mbox{\Hypertarget{class_decomposer_a74b7eafcb2daa395434b6d60229dc6b9}\label{class_decomposer_a74b7eafcb2daa395434b6d60229dc6b9}} 
+\index{Decomposer@{Decomposer}!polygon@{polygon}}
+\index{polygon@{polygon}!Decomposer@{Decomposer}}
+\doxysubsubsection{\texorpdfstring{polygon}{polygon}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_d_c_e_l}{DCEL}} Decomposer\+::polygon}
+
+
+
+Definition at line \mbox{\hyperlink{decomposer_8h_source_l00050}{50}} of file \mbox{\hyperlink{decomposer_8h_source}{decomposer.\+h}}.
+
+\mbox{\Hypertarget{class_decomposer_ab784bf15cb352a0aa3a53125e89891d1}\label{class_decomposer_ab784bf15cb352a0aa3a53125e89891d1}} 
+\index{Decomposer@{Decomposer}!vertSize@{vertSize}}
+\index{vertSize@{vertSize}!Decomposer@{Decomposer}}
+\doxysubsubsection{\texorpdfstring{vertSize}{vertSize}}
+{\footnotesize\ttfamily int Decomposer\+::vert\+Size}
+
+
+
+Definition at line \mbox{\hyperlink{decomposer_8h_source_l00051}{51}} of file \mbox{\hyperlink{decomposer_8h_source}{decomposer.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Rohit/\+Desktop/\+CS-\/\+F364\+\_\+\+Assignment-\/1/\+CS-\/\+F364\+\_\+\+Assignment-\/1/src/\mbox{\hyperlink{decomposer_8h}{decomposer.\+h}}\item 
+C\+:/\+Users/\+Rohit/\+Desktop/\+CS-\/\+F364\+\_\+\+Assignment-\/1/\+CS-\/\+F364\+\_\+\+Assignment-\/1/src/\mbox{\hyperlink{decomposer_8cpp}{decomposer.\+cpp}}\end{DoxyCompactItemize}

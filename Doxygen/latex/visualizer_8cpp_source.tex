@@ -1,5 +1,5 @@
 \hypertarget{visualizer_8cpp_source}{}\doxysection{visualizer.\+cpp}
-\label{visualizer_8cpp_source}\index{C:/Users/Rohit/Desktop/3-\/2/CS-\/F364/Evals/Assignment-\/1/CS-\/F364\_Assignment-\/1/src/visualizer.cpp@{C:/Users/Rohit/Desktop/3-\/2/CS-\/F364/Evals/Assignment-\/1/CS-\/F364\_Assignment-\/1/src/visualizer.cpp}}
+\label{visualizer_8cpp_source}\index{C:/Users/Rohit/Desktop/CS-\/F364\_Assignment-\/1/CS-\/F364\_Assignment-\/1/src/visualizer.cpp@{C:/Users/Rohit/Desktop/CS-\/F364\_Assignment-\/1/CS-\/F364\_Assignment-\/1/src/visualizer.cpp}}
 \mbox{\hyperlink{visualizer_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{visualizer_8h}{visualizer.h}}"{}}}
@@ -13,149 +13,177 @@
 \DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00009}\mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{00009}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}}\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00010}\mbox{\hyperlink{visualizer_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{00010}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{visualizer_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}}\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00011}\mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{00011}}\ vector<vector<pair<int,\ int>>>\ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}};}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00012}00012\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00013}\mbox{\hyperlink{visualizer_8cpp_adbc7b313e971bb79135f4e411fff0310}{00013}}\ vector<vector<pair<int,\ int>>>\ \mbox{\hyperlink{visualizer_8cpp_adbc7b313e971bb79135f4e411fff0310}{normalize}}(vector<vector<pair<float,\ float>>>\&\ ansFloat,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}})\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{float}\ maxX\ =\ ansFloat[0][0].first;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{float}\ maxY\ =\ ansFloat[0][0].second;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{float}\ minX\ =\ ansFloat[0][0].first;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{float}\ minY\ =\ ansFloat[0][0].second;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ansFloat.size();\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ ansFloat[i].size();\ j++)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ maxX\ =\ max(maxX,\ ansFloat[i][j].first);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ maxY\ =\ max(maxY,\ ansFloat[i][j].second);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ minX\ =\ min(maxX,\ ansFloat[i][j].first);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ minY\ =\ min(maxY,\ ansFloat[i][j].second);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00025}00025\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{int}\ scaler\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00029}00029\ \ \ \ \ vector<vector<pair<int,\ int>>>\ temp(ansFloat.size());}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ansFloat.size();\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ ansFloat[i].size();\ j++)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ a\ =\ scaler\ *\ ansFloat[i][j].first;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ b\ =\ scaler\ *\ ansFloat[i][j].second;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ temp[i].emplace\_back(a,\ b);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00036}00036\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00037}00037\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00039}00039\ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00040}00040\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00041}\mbox{\hyperlink{visualizer_8cpp_a10d41fbf47a969fc508c497ec7dabb6b}{00041}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{visualizer_8cpp_a10d41fbf47a969fc508c497ec7dabb6b}{draw\_polygon}}(\textcolor{keywordtype}{int}\ button,\ \textcolor{keywordtype}{int}\ state,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a4eb04df815a1456e2820b52614facf2e}{currentPt}}\ =\ make\_pair(x,\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}}\ -\/\ y);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (button\ ==\ GLUT\_LEFT\_BUTTON\ \&\&\ state\ ==\ GLUT\_DOWN)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}})\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.clear();\ \ \textcolor{comment}{//\ restart\ if\ last\ action\ was\ close}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.push\_back(\mbox{\hyperlink{visualizer_8cpp_a4eb04df815a1456e2820b52614facf2e}{currentPt}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00047}00047\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (button\ ==\ GLUT\_RIGHT\_BUTTON\ \&\&\ state\ ==\ GLUT\_DOWN)\ \mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00049}00049\ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00050}00050\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00051}\mbox{\hyperlink{visualizer_8cpp_ae3e625e68449be036ab80baa9ce917d8}{00051}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{visualizer_8cpp_ae3e625e68449be036ab80baa9ce917d8}{mouse\_move}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a4eb04df815a1456e2820b52614facf2e}{currentPt}}\ =\ make\_pair(x,\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}}\ -\/\ y);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00053}00053\ \ \ \ \ glutPostRedisplay();}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00054}00054\ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00055}00055\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00056}\mbox{\hyperlink{visualizer_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}{00056}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{visualizer_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}{display}}()\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00057}00057\ \ \ \ \ glClearColor(0,\ 0,\ 0,\ 0);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00058}00058\ \ \ \ \ glClear(GL\_COLOR\_BUFFER\_BIT);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00059}00059\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.empty())\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ glBegin(GL\_LINE\_STRIP);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.size();\ i++)\ glVertex2f(\mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}[i].first,\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}[i].second);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00063}00063\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ pair<int,\ int>\ endPt\ =\ \mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}}\ ?\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.front()\ :\ \mbox{\hyperlink{visualizer_8cpp_a4eb04df815a1456e2820b52614facf2e}{currentPt}};}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ glVertex2f(endPt.first,\ endPt.second);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ glEnd();}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}}\ ==\ \textcolor{keyword}{true}\ \&\&\ \mbox{\hyperlink{visualizer_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}}\ ==\ \textcolor{keyword}{true})\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ ofstream\ ofs(\textcolor{stringliteral}{"{}../tests/inputGLUT.txt"{}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.size()\ <<\ endl;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.size();\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}[i].first\ <<\ \textcolor{charliteral}{'\ '}\ <<\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}[i].second\ <<\ endl;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00075}00075\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00076}00076\ \ \ \ \ glutSwapBuffers();}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00077}00077\ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00078}00078\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00079}\mbox{\hyperlink{visualizer_8cpp_af7a0b6c5057af4033e1aad95b707d18d}{00079}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{visualizer_8cpp_af7a0b6c5057af4033e1aad95b707d18d}{getFaces}}(\textcolor{keywordtype}{string}\ file)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00080}00080\ \ \ \ \ ifstream\ ifs(file);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00081}00081\ \ \ \ \ vector<vector<pair<float,\ float>>>\ ansFloat;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{int}\ nFaces;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00083}00083\ \ \ \ \ ifs\ >>\ nFaces;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nFaces;\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ ifs\ >>\ n;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ vector<pair<float,\ float>>\ vertices(n);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ a,\ b;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ ifs\ >>\ a\ >>\ b;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ vertices[i]\ =\ make\_pair(a,\ b);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ vertices.push\_back(vertices[0]);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ ansFloat.push\_back(vertices);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00095}00095\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00096}00096\ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}\ =\ \mbox{\hyperlink{visualizer_8cpp_adbc7b313e971bb79135f4e411fff0310}{normalize}}(ansFloat,\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00097}00097\ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00098}00098\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00099}\mbox{\hyperlink{visualizer_8cpp_ad7083c774260381ede786d0f52f62afc}{00099}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{visualizer_8cpp_ad7083c774260381ede786d0f52f62afc}{drawLines}}()\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00100}00100\ \ \ \ \ glClear(GL\_COLOR\_BUFFER\_BIT);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00101}00101\ \ \ \ \ glColor3f(0.0,\ 1.0,\ 0.0);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00102}00102\ \ \ \ \ glPointSize(5.0);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}.size();\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ glBegin(GL\_LINES);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[i].size()\ -\/\ 1;\ j++)\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ glVertex2i(\mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[i][j].first,\ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[i][j].second);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ glVertex2i(\mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[i][j\ +\ 1].first,\ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[i][j\ +\ 1].second);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ glEnd();}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ glFlush();}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00111}00111\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00112}00112\ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00113}00113\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00114}\mbox{\hyperlink{class_g_l_u_t_visualizer_a2d926c96f7558945f2775f047a5724de}{00114}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_l_u_t_visualizer_a2d926c96f7558945f2775f047a5724de}{GLUTVisualizer::init}}()\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00115}00115\ \ \ \ \ glClearColor(0,\ 0,\ 0,\ 0);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00116}00116\ \ \ \ \ glViewport(0,\ 0,\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}},\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00117}00117\ \ \ \ \ glMatrixMode(GL\_PROJECTION);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00118}00118\ \ \ \ \ glLoadIdentity();}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00119}00119\ \ \ \ \ glOrtho(0,\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}},\ 0,\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}},\ 1,\ -\/1);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00120}00120\ \ \ \ \ glMatrixMode(GL\_MODELVIEW);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00121}00121\ \ \ \ \ glLoadIdentity();}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00122}00122\ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00123}00123\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00124}\mbox{\hyperlink{class_g_l_u_t_visualizer_a82bf1f5b19812c30916eb9fe9728350d}{00124}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_l_u_t_visualizer_a82bf1f5b19812c30916eb9fe9728350d}{GLUTVisualizer::runOutput}}()\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00125}00125\ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_af7a0b6c5057af4033e1aad95b707d18d}{getFaces}}(\textcolor{stringliteral}{"{}../tests/output.txt"{}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00126}00126\ \ \ \ \ \textcolor{keywordtype}{int}\ argc\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00127}00127\ \ \ \ \ \textcolor{keywordtype}{char}*\ argv[1]\ =\ \{(\textcolor{keywordtype}{char}*)\textcolor{stringliteral}{"{}"{}}\};}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00128}00128\ \ \ \ \ glutInit(\&argc,\ argv);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00129}00129\ \ \ \ \ glutInitWindowPosition(10,\ 10);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00130}00130\ \ \ \ \ glutInitWindowSize(\mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}},\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00131}00131\ \ \ \ \ glutInitDisplayMode(GLUT\_SINGLE\ |\ GLUT\_RGB);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00132}00132\ \ \ \ \ glutSetOption(GLUT\_ACTION\_ON\_WINDOW\_CLOSE,\ GLUT\_ACTION\_GLUTMAINLOOP\_RETURNS);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00133}00133\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00134}00134\ \ \ \ \ glutCreateWindow(\textcolor{stringliteral}{"{}Polygon\ Decomposition"{}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00135}00135\ \ \ \ \ this-\/>\mbox{\hyperlink{class_g_l_u_t_visualizer_a2d926c96f7558945f2775f047a5724de}{init}}();}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00136}00136\ \ \ \ \ glutDisplayFunc(\mbox{\hyperlink{visualizer_8cpp_ad7083c774260381ede786d0f52f62afc}{drawLines}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00137}00137\ \ \ \ \ glutMainLoop();}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00138}00138\ \}}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00139}00139\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00140}\mbox{\hyperlink{class_g_l_u_t_visualizer_ae2636efcb282a67e090e835fe2023749}{00140}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_l_u_t_visualizer_ae2636efcb282a67e090e835fe2023749}{GLUTVisualizer::runInput}}()\ \{}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00141}00141\ \ \ \ \ \textcolor{keywordtype}{int}\ argc\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00142}00142\ \ \ \ \ \textcolor{keywordtype}{char}*\ argv[1]\ =\ \{(\textcolor{keywordtype}{char}*)\textcolor{stringliteral}{"{}"{}}\};}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00143}00143\ \ \ \ \ glutInit(\&argc,\ argv);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00144}00144\ \ \ \ \ glutInitWindowPosition(10,\ 10);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00145}00145\ \ \ \ \ glutInitWindowSize(\mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}},\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00146}00146\ \ \ \ \ glutInitDisplayMode(GLUT\_SINGLE\ |\ GLUT\_RGB);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00147}00147\ \ \ \ \ glutSetOption(GLUT\_ACTION\_ON\_WINDOW\_CLOSE,\ GLUT\_ACTION\_GLUTMAINLOOP\_RETURNS);}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00148}00148\ }
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00149}00149\ \ \ \ \ glutCreateWindow(\textcolor{stringliteral}{"{}Input\ Polygon"{}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00150}00150\ \ \ \ \ this-\/>\mbox{\hyperlink{class_g_l_u_t_visualizer_a2d926c96f7558945f2775f047a5724de}{init}}();}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00151}00151\ \ \ \ \ glutDisplayFunc(\mbox{\hyperlink{visualizer_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}{display}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00152}00152\ \ \ \ \ glutPassiveMotionFunc(\mbox{\hyperlink{visualizer_8cpp_ae3e625e68449be036ab80baa9ce917d8}{mouse\_move}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00153}00153\ \ \ \ \ glutMouseFunc(\mbox{\hyperlink{visualizer_8cpp_a10d41fbf47a969fc508c497ec7dabb6b}{draw\_polygon}});}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00154}00154\ \ \ \ \ glutMainLoop();}
-\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00155}00155\ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00012}\mbox{\hyperlink{visualizer_8cpp_a5e9f951ac74e1226535d038b1893d4a1}{00012}}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{visualizer_8cpp_a5e9f951ac74e1226535d038b1893d4a1}{inputFile}};}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00014}\mbox{\hyperlink{visualizer_8cpp_adbc7b313e971bb79135f4e411fff0310}{00014}}\ vector<vector<pair<int,\ int>>>\ \mbox{\hyperlink{visualizer_8cpp_adbc7b313e971bb79135f4e411fff0310}{normalize}}(vector<vector<pair<float,\ float>>>\&\ ansFloat,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}})\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{float}\ maxX\ =\ ansFloat[0][0].first;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{float}\ maxY\ =\ ansFloat[0][0].second;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{float}\ minX\ =\ ansFloat[0][0].first;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{float}\ minY\ =\ ansFloat[0][0].second;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ansFloat.size();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ ansFloat[i].size();\ j++)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ maxX\ =\ max(maxX,\ ansFloat[i][j].first);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ maxY\ =\ max(maxY,\ ansFloat[i][j].second);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ minX\ =\ min(maxX,\ ansFloat[i][j].first);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ minY\ =\ min(maxY,\ ansFloat[i][j].second);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{int}\ scaler\ =\ 1;\ \ \textcolor{comment}{//\ change\ this\ scaler\ if\ you\ give\ input\ as\ text\ file}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00030}00030\ \ \ \ \ vector<vector<pair<int,\ int>>>\ temp(ansFloat.size());}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ansFloat.size();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ ansFloat[i].size();\ j++)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ a\ =\ scaler\ *\ ansFloat[i][j].first;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ b\ =\ scaler\ *\ ansFloat[i][j].second;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ temp[i].emplace\_back(a,\ b);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00042}\mbox{\hyperlink{visualizer_8cpp_a12adad629997810dd1b2f4507bdb93d5}{00042}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{visualizer_8cpp_a12adad629997810dd1b2f4507bdb93d5}{getInputPolygon}}(\textcolor{keywordtype}{int}\ button,\ \textcolor{keywordtype}{int}\ state,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a4eb04df815a1456e2820b52614facf2e}{currentPt}}\ =\ make\_pair(x,\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}}\ -\/\ y);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (button\ ==\ GLUT\_LEFT\_BUTTON\ \&\&\ state\ ==\ GLUT\_DOWN)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}})\ glutDestroyWindow(glutGetWindow());\ \ \textcolor{comment}{//\ restart\ if\ last\ action\ was\ close}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.push\_back(\mbox{\hyperlink{visualizer_8cpp_a4eb04df815a1456e2820b52614facf2e}{currentPt}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (button\ ==\ GLUT\_RIGHT\_BUTTON\ \&\&\ state\ ==\ GLUT\_DOWN)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}}\ ==\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ glutDestroyWindow(glutGetWindow());}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00054}00054\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00057}\mbox{\hyperlink{visualizer_8cpp_ad98e38d016ad1258ee8592beffa21c93}{00057}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{visualizer_8cpp_ad98e38d016ad1258ee8592beffa21c93}{mouseMove}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a4eb04df815a1456e2820b52614facf2e}{currentPt}}\ =\ make\_pair(x,\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}}\ -\/\ y);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00059}00059\ \ \ \ \ glutPostRedisplay();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00062}\mbox{\hyperlink{visualizer_8cpp_a57ef2d1f15bc7bbdbc4b2da95dca3871}{00062}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{visualizer_8cpp_a57ef2d1f15bc7bbdbc4b2da95dca3871}{displayInput}}()\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00063}00063\ \ \ \ \ glClear(GL\_COLOR\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00064}00064\ \ \ \ \ glColor3f(1.0,\ 1.0,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00065}00065\ \ \ \ \ glPointSize(5.0);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ glBegin(GL\_LINE\_STRIP);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.size();\ i++)\ glVertex2f(\mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}[i].first,\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}[i].second);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ pair<int,\ int>\ endPt\ =\ \mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}}\ ?\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.front()\ :\ \mbox{\hyperlink{visualizer_8cpp_a4eb04df815a1456e2820b52614facf2e}{currentPt}};}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ glVertex2f(endPt.first,\ endPt.second);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ glEnd();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{visualizer_8cpp_a624c24d3973e790d23212b57f13e894b}{closed}}\ ==\ \textcolor{keyword}{true}\ \&\&\ \mbox{\hyperlink{visualizer_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}}\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ ofstream\ ofs(\mbox{\hyperlink{visualizer_8cpp_a5e9f951ac74e1226535d038b1893d4a1}{inputFile}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.size()\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}.size();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}[i].first\ <<\ \textcolor{charliteral}{'\ '}\ <<\ \mbox{\hyperlink{visualizer_8cpp_abdb7083f99fb7e5dacf506224afe7b0a}{pts}}[i].second\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00083}00083\ \ \ \ \ glutSwapBuffers();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00084}00084\ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00086}\mbox{\hyperlink{visualizer_8cpp_af7a0b6c5057af4033e1aad95b707d18d}{00086}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{visualizer_8cpp_af7a0b6c5057af4033e1aad95b707d18d}{getFaces}}(\textcolor{keywordtype}{string}\ file)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00087}00087\ \ \ \ \ ifstream\ ifs(file);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00088}00088\ \ \ \ \ vector<vector<pair<float,\ float>>>\ ansFloat;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{int}\ nFaces;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00090}00090\ \ \ \ \ ifs\ >>\ nFaces;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nFaces;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ ifs\ >>\ n;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ vector<pair<float,\ float>>\ vertices(n);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ a,\ b;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ ifs\ >>\ a\ >>\ b;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ vertices[i]\ =\ make\_pair(a,\ b);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ vertices.push\_back(vertices[0]);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ ansFloat.push\_back(vertices);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00102}00102\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00103}00103\ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}\ =\ \mbox{\hyperlink{visualizer_8cpp_adbc7b313e971bb79135f4e411fff0310}{normalize}}(ansFloat,\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00106}\mbox{\hyperlink{visualizer_8cpp_ad7083c774260381ede786d0f52f62afc}{00106}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{visualizer_8cpp_ad7083c774260381ede786d0f52f62afc}{drawLines}}()\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00107}00107\ \ \ \ \ glClear(GL\_COLOR\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00108}00108\ \ \ \ \ glColor3f(0.0,\ 1.0,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00109}00109\ \ \ \ \ glPointSize(5.0);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00110}00110\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}.size();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ glBegin(GL\_LINES);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[i].size()\ -\/\ 1;\ j++)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ glVertex2i(\mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[i][j].first,\ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[i][j].second);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ glVertex2i(\mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[i][j\ +\ 1].first,\ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[i][j\ +\ 1].second);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ glEnd();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ glFlush();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00118}00118\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00119}00119\ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00121}\mbox{\hyperlink{visualizer_8cpp_a4b04f2a7177aceae2eb92f9c97087e20}{00121}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{visualizer_8cpp_a4b04f2a7177aceae2eb92f9c97087e20}{drawOriginal}}()\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00122}00122\ \ \ \ \ glClear(GL\_COLOR\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00123}00123\ \ \ \ \ glColor3f(1.0,\ 0.0,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00124}00124\ \ \ \ \ glPointSize(5.0);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00126}00126\ \ \ \ \ glBegin(GL\_LINES);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00127}00127\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[0].size()\ -\/\ 1;\ j++)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ glVertex2i(\mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[0][j].first,\ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[0][j].second);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ glVertex2i(\mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[0][j\ +\ 1].first,\ \mbox{\hyperlink{visualizer_8cpp_af495910c794e1cb017a459385d4f6a2d}{ans}}[0][j\ +\ 1].second);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00130}00130\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00131}00131\ \ \ \ \ glEnd();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00132}00132\ \ \ \ \ glFlush();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00133}00133\ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00135}\mbox{\hyperlink{visualizer_8cpp_a03df8f8f83badef1eac9386c1ddfe331}{00135}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{visualizer_8cpp_a03df8f8f83badef1eac9386c1ddfe331}{initWindow}}()\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00136}00136\ \ \ \ \ glClearColor(0,\ 0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00137}00137\ \ \ \ \ glViewport(0,\ 0,\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}},\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00138}00138\ \ \ \ \ glMatrixMode(GL\_PROJECTION);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00139}00139\ \ \ \ \ glLoadIdentity();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00140}00140\ \ \ \ \ glOrtho(0,\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}},\ 0,\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}},\ 1,\ -\/1);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00141}00141\ \ \ \ \ glMatrixMode(GL\_MODELVIEW);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00142}00142\ \ \ \ \ glLoadIdentity();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00143}00143\ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00145}\mbox{\hyperlink{class_g_l_u_t_visualizer_aefed07d00ab884f512372c7069b4dc5a}{00145}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_l_u_t_visualizer_aefed07d00ab884f512372c7069b4dc5a}{GLUTVisualizer::runOutput}}(\textcolor{keywordtype}{string}\ outFile)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00146}00146\ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_af7a0b6c5057af4033e1aad95b707d18d}{getFaces}}(outFile);\ \ \textcolor{comment}{//\ acts\ on\ the\ global\ variable\ ans\ to\ be\ used\ in\ drawLines}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00147}00147\ \ \ \ \ \textcolor{keywordtype}{int}\ argc\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00148}00148\ \ \ \ \ \textcolor{keywordtype}{char}*\ argv[1]\ =\ \{(\textcolor{keywordtype}{char}*)\textcolor{stringliteral}{"{}"{}}\};}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00149}00149\ \ \ \ \ glutInit(\&argc,\ argv);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00150}00150\ \ \ \ \ glutInitWindowPosition(10,\ 10);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00151}00151\ \ \ \ \ glutInitWindowSize(\mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}},\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00152}00152\ \ \ \ \ glutInitDisplayMode(GLUT\_SINGLE\ |\ GLUT\_RGB);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00153}00153\ \ \ \ \ glutSetOption(GLUT\_ACTION\_ON\_WINDOW\_CLOSE,\ GLUT\_ACTION\_GLUTMAINLOOP\_RETURNS);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00155}00155\ \ \ \ \ glutCreateWindow(\textcolor{stringliteral}{"{}Original\ Input"{}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00156}00156\ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a03df8f8f83badef1eac9386c1ddfe331}{initWindow}}();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00157}00157\ \ \ \ \ glutDisplayFunc(\mbox{\hyperlink{visualizer_8cpp_a4b04f2a7177aceae2eb92f9c97087e20}{drawOriginal}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00159}00159\ \ \ \ \ glutInitWindowPosition(710,\ 10);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00160}00160\ \ \ \ \ glutCreateWindow(\textcolor{stringliteral}{"{}Polygon\ Decomposition"{}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00161}00161\ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a03df8f8f83badef1eac9386c1ddfe331}{initWindow}}();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00162}00162\ \ \ \ \ glutDisplayFunc(\mbox{\hyperlink{visualizer_8cpp_ad7083c774260381ede786d0f52f62afc}{drawLines}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00164}00164\ \ \ \ \ glutMainLoop();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00165}00165\ \}}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00167}\mbox{\hyperlink{class_g_l_u_t_visualizer_a75664fb84323fa16c8255c4088fffc4b}{00167}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_l_u_t_visualizer_a75664fb84323fa16c8255c4088fffc4b}{GLUTVisualizer::runInput}}(\textcolor{keywordtype}{string}\ inFile)\ \{}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00168}00168\ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a5e9f951ac74e1226535d038b1893d4a1}{inputFile}}\ =\ inFile;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00169}00169\ \ \ \ \ \textcolor{keywordtype}{int}\ argc\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00170}00170\ \ \ \ \ \textcolor{keywordtype}{char}*\ argv[1]\ =\ \{(\textcolor{keywordtype}{char}*)\textcolor{stringliteral}{"{}"{}}\};}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00171}00171\ \ \ \ \ glutInit(\&argc,\ argv);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00172}00172\ \ \ \ \ glutInitWindowPosition(10,\ 10);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00173}00173\ \ \ \ \ glutInitWindowSize(\mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}},\ \mbox{\hyperlink{visualizer_8cpp_aa16bffcce76b260583b2be7308a6f1c4}{scrSize}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00174}00174\ \ \ \ \ glutInitDisplayMode(GLUT\_SINGLE\ |\ GLUT\_RGB);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00175}00175\ \ \ \ \ glutSetOption(GLUT\_ACTION\_ON\_WINDOW\_CLOSE,\ GLUT\_ACTION\_GLUTMAINLOOP\_RETURNS);}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00177}00177\ \ \ \ \ glutCreateWindow(\textcolor{stringliteral}{"{}Input\ Polygon"{}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00178}00178\ \ \ \ \ \mbox{\hyperlink{visualizer_8cpp_a03df8f8f83badef1eac9386c1ddfe331}{initWindow}}();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00179}00179\ \ \ \ \ glutDisplayFunc(\mbox{\hyperlink{visualizer_8cpp_a57ef2d1f15bc7bbdbc4b2da95dca3871}{displayInput}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00180}00180\ \ \ \ \ glutPassiveMotionFunc(\mbox{\hyperlink{visualizer_8cpp_ad98e38d016ad1258ee8592beffa21c93}{mouseMove}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00181}00181\ \ \ \ \ glutMouseFunc(\mbox{\hyperlink{visualizer_8cpp_a12adad629997810dd1b2f4507bdb93d5}{getInputPolygon}});}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00182}00182\ \ \ \ \ glutMainLoop();}
+\DoxyCodeLine{\Hypertarget{visualizer_8cpp_source_l00183}00183\ \}}
 
 \end{DoxyCode}

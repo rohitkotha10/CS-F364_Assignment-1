@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['prev_0',['prev',['../class_edge_d_c_e_l.html#afd55bf88d5c4e0a979c27bc5a7e21f7e',1,'EdgeDCEL']]],
-  ['printfaces_1',['printFaces',['../class_d_c_e_l.html#ab8440056e62d365e7a2fd73bfc582e3b',1,'DCEL']]],
-  ['pts_2',['pts',['../visualizer_8cpp.html#abdb7083f99fb7e5dacf506224afe7b0a',1,'visualizer.cpp']]]
+  ['polygon_0',['polygon',['../class_decomposer.html#a74b7eafcb2daa395434b6d60229dc6b9',1,'Decomposer']]],
+  ['prev_1',['prev',['../class_edge_d_c_e_l.html#afd55bf88d5c4e0a979c27bc5a7e21f7e',1,'EdgeDCEL']]],
+  ['printfaces_2',['printFaces',['../class_d_c_e_l.html#ab8440056e62d365e7a2fd73bfc582e3b',1,'DCEL']]],
+  ['processverts_3',['processVerts',['../class_decomposer.html#ac1c7b88f403b27b18639f3b6caaf397b',1,'Decomposer']]],
+  ['pts_4',['pts',['../visualizer_8cpp.html#abdb7083f99fb7e5dacf506224afe7b0a',1,'visualizer.cpp']]]
 ];

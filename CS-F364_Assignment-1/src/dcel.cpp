@@ -105,7 +105,7 @@ void DCEL::addEdge(shared_ptr<EdgeDCEL> e1, shared_ptr<EdgeDCEL> e2) {
     shared_ptr<EdgeDCEL> edgeNewTwin = make_shared<EdgeDCEL>();
 
     faceNew->incEdge = e1;
-    oldface->incEdge = e2;
+    oldface->incEdge = edgeNew;
 
     edgeNew->org = e1->org;
     edgeNewTwin->org = e2->org;

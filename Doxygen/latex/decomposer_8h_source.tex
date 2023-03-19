@@ -1,0 +1,38 @@
+\hypertarget{decomposer_8h_source}{}\doxysection{decomposer.\+h}
+\label{decomposer_8h_source}\index{C:/Users/Rohit/Desktop/CS-\/F364\_Assignment-\/1/CS-\/F364\_Assignment-\/1/src/decomposer.h@{C:/Users/Rohit/Desktop/CS-\/F364\_Assignment-\/1/CS-\/F364\_Assignment-\/1/src/decomposer.h}}
+\mbox{\hyperlink{decomposer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dcel_8h}{dcel.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00013}\mbox{\hyperlink{class_decomposer}{00013}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_decomposer}{Decomposer}}\ \{}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00014}00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_decomposer_ac1c7b88f403b27b18639f3b6caaf397b}{processVerts}}(std::string\ inFile);}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_decomposer_af01eeb01a3cfca8e5194b839737dac8c}{decomposeIntoConvex}}();}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00032}00032\ \ \ \ \ std::pair<int,\ std::shared\_ptr<EdgeDCEL>>\ \mbox{\hyperlink{class_decomposer_a7d2fdfe7213ed2fcf95a18fa94a0bcd3}{checkNotchInside}}(}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ std::shared\_ptr<EdgeDCEL>\&\ first,\ std::shared\_ptr<EdgeDCEL>\&\ last);}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00042}00042\ \ \ \ \ std::shared\_ptr<EdgeDCEL>\ \mbox{\hyperlink{class_decomposer_a4c135c265c0e185b60aaab26b1237941}{getNewLast}}(\textcolor{keywordtype}{int}\ notch,\ std::shared\_ptr<EdgeDCEL>\&\ first,\ std::shared\_ptr<EdgeDCEL>\&\ last);}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_decomposer_a6abafcf92c2b382807134e7dc2a21155}{findNotches}}();}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00050}\mbox{\hyperlink{class_decomposer_a74b7eafcb2daa395434b6d60229dc6b9}{00050}}\ \ \ \ \ \mbox{\hyperlink{class_d_c_e_l}{DCEL}}\ \mbox{\hyperlink{class_decomposer_a74b7eafcb2daa395434b6d60229dc6b9}{polygon}};}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00051}\mbox{\hyperlink{class_decomposer_ab784bf15cb352a0aa3a53125e89891d1}{00051}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_decomposer_ab784bf15cb352a0aa3a53125e89891d1}{vertSize}};}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00052}\mbox{\hyperlink{class_decomposer_ac7bc9fa2fae80464e4497ccebbb3b3ff}{00052}}\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{class_decomposer_ac7bc9fa2fae80464e4497ccebbb3b3ff}{notches}};}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00053}00053\ \};}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00055}00055\ \textcolor{comment}{//\ some\ helper\ functions}}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00064}\mbox{\hyperlink{decomposer_8h_ad6d02e42ef6977d0faa2c9b776db9bff}{00064}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{decomposer_8h_ad6d02e42ef6977d0faa2c9b776db9bff}{isReflex}}(std::pair<float,\ float>\ v1,\ std::pair<float,\ float>\ v2,\ std::pair<float,\ float>\ v3);}
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{decomposer_8h_source_l00074}\mbox{\hyperlink{decomposer_8h_a2b9fd07020cb3412c01fb39c5466bfbd}{00074}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{decomposer_8h_a2b9fd07020cb3412c01fb39c5466bfbd}{lineEq}}(std::pair<float,\ float>\ val,\ \textcolor{keywordtype}{float}\ a,\ \textcolor{keywordtype}{float}\ b,\ \textcolor{keywordtype}{float}\ c);}
+
+\end{DoxyCode}

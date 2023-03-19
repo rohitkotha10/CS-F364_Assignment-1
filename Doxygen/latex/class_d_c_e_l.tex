@@ -16,11 +16,11 @@ void \mbox{\hyperlink{class_d_c_e_l_aca126197857e170bc55203a621f88087}{create\+D
 \begin{DoxyCompactList}\small\item\em create a polygon given vertices in ccw order \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_d_c_e_l_ab8440056e62d365e7a2fd73bfc582e3b}{print\+Faces}} (std\+::string file)
 \begin{DoxyCompactList}\small\item\em prints all the faces along with their vertices \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_d_c_e_l_a34e82ecac808882a7136b09470e6b8c0}{add\+Edge}} (int i, int j)
+void \mbox{\hyperlink{class_d_c_e_l_ae2dc6bad344e9a9ad1a96c15946cc1a2}{add\+Edge}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ e1, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ e2)
 \begin{DoxyCompactList}\small\item\em add an edge to decompose \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_d_c_e_l_ad4b422c66af0f3536f024b11a49fcd2e}{exist\+Edge}} (int i, int j)
+bool \mbox{\hyperlink{class_d_c_e_l_aa1a634e6fa58184f73e22c3163e6a396}{exist\+Edge}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ e1, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$ e2)
 \begin{DoxyCompactList}\small\item\em check if there is an edge \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_d_c_e_l_a55e977e6e671fc365e52ca0a10510e6c}{get\+Vertex\+Ind}} (std\+::pair$<$ float, float $>$ val)
+int \mbox{\hyperlink{class_d_c_e_l_a07d2754bd67f48f6b31af285a3cc0906}{get\+Vertex\+Ind}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_vertex_d_c_e_l}{Vertex\+DCEL}} $>$ vert)
 \begin{DoxyCompactList}\small\item\em get the index in vertex\+Records for ease of traversal and notation \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -36,16 +36,16 @@ std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_face_d_c_e_l}{
 \doxysubsection{Detailed Description}
 stores the polygon object in a \mbox{\hyperlink{class_d_c_e_l}{DCEL}} 
 
-Definition at line \mbox{\hyperlink{dcel_8h_source_l00049}{49}} of file \mbox{\hyperlink{dcel_8h_source}{dcel.\+h}}.
+Definition at line \mbox{\hyperlink{dcel_8h_source_l00051}{51}} of file \mbox{\hyperlink{dcel_8h_source}{dcel.\+h}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_d_c_e_l_a34e82ecac808882a7136b09470e6b8c0}\label{class_d_c_e_l_a34e82ecac808882a7136b09470e6b8c0}} 
+\mbox{\Hypertarget{class_d_c_e_l_ae2dc6bad344e9a9ad1a96c15946cc1a2}\label{class_d_c_e_l_ae2dc6bad344e9a9ad1a96c15946cc1a2}} 
 \index{DCEL@{DCEL}!addEdge@{addEdge}}
 \index{addEdge@{addEdge}!DCEL@{DCEL}}
 \doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
-{\footnotesize\ttfamily void DCEL\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void DCEL\+::add\+Edge (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$}]{e1,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$}]{e2 }\end{DoxyParamCaption})}
 
 
 
@@ -53,9 +53,9 @@ add an edge to decompose
 
 
 \begin{DoxyParams}{Parameters}
-{\em i} & first vertex \\
+{\em e1} & first edge \\
 \hline
-{\em j} & second vertex \\
+{\em e2} & second edge \\
 \hline
 \end{DoxyParams}
 
@@ -81,11 +81,11 @@ create a polygon given vertices in ccw order
 
 Definition at line \mbox{\hyperlink{dcel_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{dcel_8cpp_source}{dcel.\+cpp}}.
 
-\mbox{\Hypertarget{class_d_c_e_l_ad4b422c66af0f3536f024b11a49fcd2e}\label{class_d_c_e_l_ad4b422c66af0f3536f024b11a49fcd2e}} 
+\mbox{\Hypertarget{class_d_c_e_l_aa1a634e6fa58184f73e22c3163e6a396}\label{class_d_c_e_l_aa1a634e6fa58184f73e22c3163e6a396}} 
 \index{DCEL@{DCEL}!existEdge@{existEdge}}
 \index{existEdge@{existEdge}!DCEL@{DCEL}}
 \doxysubsubsection{\texorpdfstring{existEdge()}{existEdge()}}
-{\footnotesize\ttfamily bool DCEL\+::exist\+Edge (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool DCEL\+::exist\+Edge (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$}]{e1,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_d_c_e_l}{Edge\+DCEL}} $>$}]{e2 }\end{DoxyParamCaption})}
 
 
 
@@ -93,23 +93,23 @@ check if there is an edge
 
 
 \begin{DoxyParams}{Parameters}
-{\em i} & first vertex \\
+{\em e1} & first edge \\
 \hline
-{\em j} & second vertex \\
+{\em e2} & second edge \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true if there is an edge between i and j 
+true if there is an edge between origins of e1 and e2 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{dcel_8cpp_source_l00132}{132}} of file \mbox{\hyperlink{dcel_8cpp_source}{dcel.\+cpp}}.
+Definition at line \mbox{\hyperlink{dcel_8cpp_source_l00137}{137}} of file \mbox{\hyperlink{dcel_8cpp_source}{dcel.\+cpp}}.
 
-\mbox{\Hypertarget{class_d_c_e_l_a55e977e6e671fc365e52ca0a10510e6c}\label{class_d_c_e_l_a55e977e6e671fc365e52ca0a10510e6c}} 
+\mbox{\Hypertarget{class_d_c_e_l_a07d2754bd67f48f6b31af285a3cc0906}\label{class_d_c_e_l_a07d2754bd67f48f6b31af285a3cc0906}} 
 \index{DCEL@{DCEL}!getVertexInd@{getVertexInd}}
 \index{getVertexInd@{getVertexInd}!DCEL@{DCEL}}
 \doxysubsubsection{\texorpdfstring{getVertexInd()}{getVertexInd()}}
-{\footnotesize\ttfamily int DCEL\+::get\+Vertex\+Ind (\begin{DoxyParamCaption}\item[{std\+::pair$<$ float, float $>$}]{val }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int DCEL\+::get\+Vertex\+Ind (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_vertex_d_c_e_l}{Vertex\+DCEL}} $>$}]{vert }\end{DoxyParamCaption})}
 
 
 
@@ -125,7 +125,7 @@ the poisition i in vertex\+Records\mbox{[}i\mbox{]}
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{dcel_8cpp_source_l00141}{141}} of file \mbox{\hyperlink{dcel_8cpp_source}{dcel.\+cpp}}.
+Definition at line \mbox{\hyperlink{dcel_8cpp_source_l00146}{146}} of file \mbox{\hyperlink{dcel_8cpp_source}{dcel.\+cpp}}.
 
 \mbox{\Hypertarget{class_d_c_e_l_ab8440056e62d365e7a2fd73bfc582e3b}\label{class_d_c_e_l_ab8440056e62d365e7a2fd73bfc582e3b}} 
 \index{DCEL@{DCEL}!printFaces@{printFaces}}
@@ -157,7 +157,7 @@ Definition at line \mbox{\hyperlink{dcel_8cpp_source_l00071}{71}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{dcel_8h_source_l00082}{82}} of file \mbox{\hyperlink{dcel_8h_source}{dcel.\+h}}.
+Definition at line \mbox{\hyperlink{dcel_8h_source_l00088}{88}} of file \mbox{\hyperlink{dcel_8h_source}{dcel.\+h}}.
 
 \mbox{\Hypertarget{class_d_c_e_l_aabad831efd96d3e706a7043a1bc390e0}\label{class_d_c_e_l_aabad831efd96d3e706a7043a1bc390e0}} 
 \index{DCEL@{DCEL}!faceRecords@{faceRecords}}
@@ -167,7 +167,7 @@ Definition at line \mbox{\hyperlink{dcel_8h_source_l00082}{82}} of file \mbox{\h
 
 
 
-Definition at line \mbox{\hyperlink{dcel_8h_source_l00083}{83}} of file \mbox{\hyperlink{dcel_8h_source}{dcel.\+h}}.
+Definition at line \mbox{\hyperlink{dcel_8h_source_l00089}{89}} of file \mbox{\hyperlink{dcel_8h_source}{dcel.\+h}}.
 
 \mbox{\Hypertarget{class_d_c_e_l_af47c924f0d983f932dd37e59048d5a9b}\label{class_d_c_e_l_af47c924f0d983f932dd37e59048d5a9b}} 
 \index{DCEL@{DCEL}!vertexRecords@{vertexRecords}}
@@ -177,11 +177,11 @@ Definition at line \mbox{\hyperlink{dcel_8h_source_l00083}{83}} of file \mbox{\h
 
 
 
-Definition at line \mbox{\hyperlink{dcel_8h_source_l00081}{81}} of file \mbox{\hyperlink{dcel_8h_source}{dcel.\+h}}.
+Definition at line \mbox{\hyperlink{dcel_8h_source_l00087}{87}} of file \mbox{\hyperlink{dcel_8h_source}{dcel.\+h}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Rohit/\+Desktop/3-\/2/\+CS-\/\+F364/\+Evals/\+Assignment-\/1/\+CS-\/\+F364\+\_\+\+Assignment-\/1/src/\mbox{\hyperlink{dcel_8h}{dcel.\+h}}\item 
-C\+:/\+Users/\+Rohit/\+Desktop/3-\/2/\+CS-\/\+F364/\+Evals/\+Assignment-\/1/\+CS-\/\+F364\+\_\+\+Assignment-\/1/src/\mbox{\hyperlink{dcel_8cpp}{dcel.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/\+Rohit/\+Desktop/\+CS-\/\+F364\+\_\+\+Assignment-\/1/\+CS-\/\+F364\+\_\+\+Assignment-\/1/src/\mbox{\hyperlink{dcel_8h}{dcel.\+h}}\item 
+C\+:/\+Users/\+Rohit/\+Desktop/\+CS-\/\+F364\+\_\+\+Assignment-\/1/\+CS-\/\+F364\+\_\+\+Assignment-\/1/src/\mbox{\hyperlink{dcel_8cpp}{dcel.\+cpp}}\end{DoxyCompactItemize}
