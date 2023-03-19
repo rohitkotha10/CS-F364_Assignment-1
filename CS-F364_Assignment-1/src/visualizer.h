@@ -3,6 +3,7 @@
 #define FREEGLUT_LIB_PRAGMAS 0
 
 #include <GL/freeglut.h>
+
 #include <iostream>
 #include <fstream>
 #include <vector>

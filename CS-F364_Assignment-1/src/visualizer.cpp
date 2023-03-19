@@ -122,7 +122,7 @@ void GLUTVisualizer::init() {
 }
 
 void GLUTVisualizer::runOutput() {
-    getFaces("../tests/output.txt");
+    getFaces("../tests/output.txt");  // acts on the global variable ans to be used in drawLines
     int argc = 1;
     char* argv[1] = {(char*)""};
     glutInit(&argc, argv);

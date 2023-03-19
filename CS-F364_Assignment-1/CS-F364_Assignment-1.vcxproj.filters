@@ -24,12 +24,18 @@
     <ClCompile Include="src\visualizer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\decomposer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\dcel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\visualizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\decomposer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

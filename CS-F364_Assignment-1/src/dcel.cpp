@@ -9,7 +9,7 @@ void DCEL::createDCEL(vector<pair<float, float>> vertices) {
         shared_ptr<VertexDCEL> ver = make_shared<VertexDCEL>();
         shared_ptr<EdgeDCEL> edg = make_shared<EdgeDCEL>();
         ver->org = vertices[i];
-        ver->incEdge = edg;
+        ver->incEdgeList.push_back(edg);
         edg->org = ver;
         edg->leftFace = faceInitial;
         vertexRecords.push_back(ver);
@@ -81,18 +81,19 @@ void DCEL::printFaces(string file) {
     }
 }
 
-void DCEL::addEdge(int i, int j) {
-    shared_ptr<VertexDCEL> v1 = vertexRecords[i];
-    shared_ptr<VertexDCEL> v2 = vertexRecords[j];
-
+void DCEL::addEdge(shared_ptr<EdgeDCEL> e1, shared_ptr<EdgeDCEL> e2) {
     // the four ptrs below always satisy as we split the face we need in ccw order
-    shared_ptr<FaceDCEL> oldface = v1->incEdge->leftFace;
+    if (e1->leftFace.get() != e2->leftFace.get()) {
+        cout << "Bad Edge" << endl;
+        return;
+    }
+    shared_ptr<FaceDCEL> oldface = e1->leftFace;
 
     shared_ptr<FaceDCEL> faceNew = make_shared<FaceDCEL>();
-    shared_ptr<EdgeDCEL> nextj = v2->incEdge;
-    shared_ptr<EdgeDCEL> prevj = nextj->prev;
-    shared_ptr<EdgeDCEL> nexti = v1->incEdge;
-    shared_ptr<EdgeDCEL> previ = nexti->prev;
+    shared_ptr<EdgeDCEL> nextj = e2;
+    shared_ptr<EdgeDCEL> prevj = e2->prev;
+    shared_ptr<EdgeDCEL> nexti = e1;
+    shared_ptr<EdgeDCEL> previ = e1->prev;
 
     shared_ptr<EdgeDCEL> cur = nexti;
     while (cur.get() != nextj.get()) {
@@ -102,45 +103,50 @@ void DCEL::addEdge(int i, int j) {
 
     shared_ptr<EdgeDCEL> edgeNew = make_shared<EdgeDCEL>();
     shared_ptr<EdgeDCEL> edgeNewTwin = make_shared<EdgeDCEL>();
-    faceNew->incEdge = edgeNewTwin;
-    oldface->incEdge = edgeNew;
 
-    edgeNew->org = v1;
-    v1->incEdge = edgeNew;
-    edgeNewTwin->org = v2;
+    faceNew->incEdge = e1;
+    oldface->incEdge = e2;
+
+    edgeNew->org = e1->org;
+    edgeNewTwin->org = e2->org;
+
     edgeNew->twin = edgeNewTwin;
     edgeNewTwin->twin = edgeNew;
 
     edgeNew->next = nextj;
+    nextj->prev = edgeNew;
+
     edgeNew->prev = previ;
+    previ->next = edgeNew;
+
     edgeNew->leftFace = oldface;
 
     edgeNewTwin->next = nexti;
-    edgeNewTwin->prev = prevj;
-    edgeNewTwin->leftFace = faceNew;
-
-    previ->next = edgeNew;
     nexti->prev = edgeNewTwin;
+
+    edgeNewTwin->prev = prevj;
     prevj->next = edgeNewTwin;
-    nextj->prev = edgeNew;
+
+    edgeNewTwin->leftFace = faceNew;
 
     faceRecords.push_back(faceNew);
     edgeRecords.push_back(edgeNew);
     edgeRecords.push_back(edgeNewTwin);
 }
 
-bool DCEL::existEdge(int st, int en) {
+bool DCEL::existEdge(shared_ptr<EdgeDCEL> e1, shared_ptr<EdgeDCEL> e2) {
+    shared_ptr<VertexDCEL> vert1 = e1->org;
+    shared_ptr<VertexDCEL> vert2 = e2->org;
     for (int i = 0; i < edgeRecords.size(); i++) {
-        if (vertexRecords[st].get() == edgeRecords[i]->org.get() &&
-            vertexRecords[en].get() == edgeRecords[i]->twin->org.get())
-            return true;
+        if (vert1.get() == edgeRecords[i]->org.get() && vert2.get() == edgeRecords[i]->twin->org.get()) return true;
     }
     return false;
 }
 
-int DCEL::getVertexInd(pair<float, float> val) {
+int DCEL::getVertexInd(shared_ptr<VertexDCEL> vert) {
     for (int i = 0; i < vertexRecords.size(); i++) {
-        if (vertexRecords[i]->org == val) return i;
+        if (vertexRecords[i].get() == vert.get()) return i;
     }
+    cout << "ERROR getVertexInd" << endl;
     return -1;
 }

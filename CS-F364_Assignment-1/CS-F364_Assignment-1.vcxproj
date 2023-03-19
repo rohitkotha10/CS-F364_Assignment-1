@@ -135,11 +135,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\dcel.cpp" />
+    <ClCompile Include="src\decomposer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\visualizer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\dcel.h" />
+    <ClInclude Include="src\decomposer.h" />
     <ClInclude Include="src\visualizer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

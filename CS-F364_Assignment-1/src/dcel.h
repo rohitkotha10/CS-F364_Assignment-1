@@ -1,3 +1,4 @@
+#pragma once
 #include <vector>
 #include <memory>
 #include <algorithm>
@@ -14,7 +15,7 @@ class FaceDCEL;
 class VertexDCEL {
 public:
     std::pair<float, float> org;
-    std::shared_ptr<EdgeDCEL> incEdge;
+    std::vector<std::shared_ptr<EdgeDCEL>> incEdgeList;
 };
 
 /**
@@ -40,6 +41,7 @@ public:
      * @return vector containing the vertices in ccw order
      */
     std::vector<std::pair<float, float>> getFaceVertices();
+
     std::shared_ptr<EdgeDCEL> incEdge;
 };
 
@@ -53,30 +55,34 @@ public:
      * @param vertices these must be given in counter clockwise order
      */
     void createDCEL(std::vector<std::pair<float, float>> vertices);
+
     /**
      * @brief prints all the faces along with their vertices
      * @param file output file to be written to
      */
     void printFaces(std::string file);
+
     /**
      * @brief add an edge to decompose
-     * @param i first vertex
-     * @param j second vertex
+     * @param e1 first edge
+     * @param e2 second edge
      */
-    void addEdge(int i, int j);  // passing the indices
+    void addEdge(std::shared_ptr<EdgeDCEL> e1, std::shared_ptr<EdgeDCEL> e2);  // passing the indices
+
     /**
      * @brief check if there is an edge
-     * @param i first vertex
-     * @param j second vertex
-     * @return true if there is an edge between i and j
+     * @param e1 first edge
+     * @param e2 second edge
+     * @return true if there is an edge between origins of e1 and e2
      */
-    bool existEdge(int i, int j);
+    bool existEdge(std::shared_ptr<EdgeDCEL> e1, std::shared_ptr<EdgeDCEL> e2);
+
     /**
      * @brief get the index in vertexRecords for ease of traversal and notation
      * @param val the value of vertex
      * @return the poisition i in vertexRecords[i]
      */
-    int getVertexInd(std::pair<float, float> val);
+    int getVertexInd(std::shared_ptr<VertexDCEL> vert);
 
     std::vector<std::shared_ptr<VertexDCEL>> vertexRecords;
     std::vector<std::shared_ptr<EdgeDCEL>> edgeRecords;
