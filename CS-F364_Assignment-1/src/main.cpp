@@ -8,12 +8,12 @@ using namespace std;
  * @return
  */
 int main() {
-    string inFile = "../tests/inputGLUT.txt";
+    string inFile = "../tests/input.txt";
     string outFile = "../tests/output.txt";
 
     GLUTVisualizer vis;
     // make sure you draw the polygon in counter-clockwise order
-    vis.runInput(inFile);  // input data written to text file
+    //vis.runInput(inFile);  // input data written to text file
 
     Decomposer dec;
     dec.processVerts(inFile);
