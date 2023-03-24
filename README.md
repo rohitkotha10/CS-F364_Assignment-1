@@ -8,6 +8,11 @@ Pages 330-342,
 ISSN 0377-2217,  
 https://doi.org/10.1016/S0377-2217(99)00033-8.  
 
+## Team Details
+- 1 Member  
+- Name: Kotha Rohit Reddy  
+- ID: 2020A7PS1890H  
+
 ## Build Instructions
 - Tested on `Windows` using `Visual Studio` with `C++ Desktop Environment`
 - Freeglut library is statically linked for the visualizer to run
